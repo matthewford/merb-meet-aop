@@ -1,0 +1,6 @@
+---
+:development: &defaults
+  :adapter: sqlite3
+  :database: db/aspect.sqlite3
+  :log_stream: STDOUT
+  :log_level: 0
