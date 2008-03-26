@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#bad_options
+is_singleton: false
+name: bad_options
+params: (message)
+visibility: protected

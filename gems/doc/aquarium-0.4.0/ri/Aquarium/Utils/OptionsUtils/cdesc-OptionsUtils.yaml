@@ -1,0 +1,51 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: universal_options
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Support parsing and processing of key-value pairs of options. Types including this module must define the following methods (see Pointcut for an example):"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  <tt>all_allowed_option_symbols</tt>\n    Return an array of all allowed options as symbols.\n  <tt>init_type_specific_specification(original_options, options_hash)</tt>\n    Called to perform any final options handling unique for the type (optional).\n"
+- !ruby/struct:SM::Flow::P 
+  body: In addition, including types should have their <tt>initialize</tt> methods calls this module's <tt>init_specification</tt> to do the options processing.
+- !ruby/struct:SM::Flow::P 
+  body: "This module also defines several universal options that will be available to all types that include this module: <tt>:logger =&gt; options_hash[:logger] || default system-wide Logger</tt>"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  A standard library Logger used for any messages. A default system-wide logger is used otherwise.\n  The corresponding <tt>logger</tt> and <tt>logger=</tt> accessors are defined.\n"
+- !ruby/struct:SM::Flow::P 
+  body: <tt>:logger_stream =&gt; options_hash[:logger_stream]</tt>
+- !ruby/struct:SM::Flow::VERB 
+  body: "  An an alternative to defining the logger, you can define just the output stream where log output will be written.\n  If this option is specified, a new logger will be created for the instance with this output stream.\n  There is no corresponding accessors; use the corresponding methods on the <tt>logger</tt> object instead.\n"
+- !ruby/struct:SM::Flow::P 
+  body: <tt>:severity =&gt; options_hash[:severity]</tt>
+- !ruby/struct:SM::Flow::VERB 
+  body: "  The logging severity level, one of the Logger::Severity values or the corresponding integer value.\n  If this option is specified, a new logger will be created for the instance with this output stream.\n  There is no corresponding accessors; use the corresponding methods on the <tt>logger</tt> object instead.\n"
+- !ruby/struct:SM::Flow::P 
+  body: <tt>:noop =&gt; options_hash[:noop] || false</tt>
+- !ruby/struct:SM::Flow::VERB 
+  body: "  If true, don't do &quot;anything&quot;, the interpretation of which will vary with the type receiving the option.\n  For example, a type might go through some initialization, such as parsng its argument list, but\n  do nothing after that. Primarily useful for debugging.\n  The value can be accessed through the <tt>noop</tt> and <tt>noop=</tt> accessors.\n"
+constants: []
+
+full_name: Aquarium::Utils::OptionsUtils
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: hashify
+- !ruby/object:RI::MethodSummary 
+  name: init_specification
+- !ruby/object:RI::MethodSummary 
+  name: init_type_specific_specification
+- !ruby/object:RI::MethodSummary 
+  name: set_logger_if_logger_or_stream_specified
+- !ruby/object:RI::MethodSummary 
+  name: set_logger_if_not_specified
+- !ruby/object:RI::MethodSummary 
+  name: set_logger_severity_if_specified
+- !ruby/object:RI::MethodSummary 
+  name: validate_options
+name: OptionsUtils
+superclass: 

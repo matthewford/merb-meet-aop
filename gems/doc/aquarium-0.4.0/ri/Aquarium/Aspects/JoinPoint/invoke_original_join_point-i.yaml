@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Invoke the actual runtime join point, skipping any intermediate advice. This method can only be called if the join point has a context object defined that represents an actual runtime &quot;state&quot;.
+full_name: Aquarium::Aspects::JoinPoint#invoke_original_join_point
+is_singleton: false
+name: invoke_original_join_point
+params: (*args, &block)
+visibility: public

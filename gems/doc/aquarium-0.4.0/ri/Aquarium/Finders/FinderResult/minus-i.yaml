@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: "-"
+block_params: 
+comment: 
+full_name: Aquarium::Finders::FinderResult#minus
+is_singleton: false
+name: minus
+params: (other_result)
+visibility: public

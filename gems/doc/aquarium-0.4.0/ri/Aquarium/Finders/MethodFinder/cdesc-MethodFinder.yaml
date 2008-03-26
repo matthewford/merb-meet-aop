@@ -1,0 +1,65 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: all_recognized_method_option_symbols
+- !ruby/object:RI::MethodSummary 
+  name: init_method_options
+- !ruby/object:RI::MethodSummary 
+  name: is_recognized_method_option
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NIL_OBJECT
+  value: MethodFinder.new unless const_defined?(:NIL_OBJECT)
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: TODO move Pointcut's options to here.
+  name: CANONICAL_OPTIONS
+  value: "{         \"types\"   => %w[type for_type for_types on_type on_types in_type in_types within_type within_types],         \"objects\" => %w[object for_object for_objects on_object on_objects in_object in_objects within_object within_objects],         \"methods\" => %w[method within_method within_methods calling invoking invocations_of calls_to sending_message_to sending_messages_to],         \"options\" => %w[method_options method_option restricting_methods_to]"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ALL_ALLOWED_OPTIONS
+  value: CANONICAL_OPTIONS.keys.inject([]) {|ary,i| ary << i << CANONICAL_OPTIONS[i]}.flatten
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ALL_ALLOWED_OPTION_SYMBOLS
+  value: ALL_ALLOWED_OPTIONS.map {|o| o.intern}
+- !ruby/object:RI::Constant 
+  comment: 
+  name: RECOGNIZED_METHOD_OPTIONS
+  value: "{         \"all\"       => %w[all_methods],         \"public\"    => %w[public_methods],         \"private\"   => %w[private_methods],         \"protected\" => %w[protected_methods],         \"instance\"  => %w[instance_methods],         \"class\"     => %w[class_methods],         \"singleton\" => %w[singleton_methods],         \"exclude_ancestor_methods\" => %w[exclude_ancestors exclude_ancestors_methods suppress_ancestors suppress_ancestor_methods suppress_ancestors_methods]"
+full_name: Aquarium::Finders::MethodFinder
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::ArrayUtils
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::OptionsUtils
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: all_allowed_option_symbols
+- !ruby/object:RI::MethodSummary 
+  name: all_exclude_all_methods?
+- !ruby/object:RI::MethodSummary 
+  name: do_find_all_by
+- !ruby/object:RI::MethodSummary 
+  name: exclude_ancestor_methods?
+- !ruby/object:RI::MethodSummary 
+  name: find
+- !ruby/object:RI::MethodSummary 
+  name: init_type_specific_specification
+- !ruby/object:RI::MethodSummary 
+  name: input_exclude_methods
+- !ruby/object:RI::MethodSummary 
+  name: input_methods
+- !ruby/object:RI::MethodSummary 
+  name: input_objects
+- !ruby/object:RI::MethodSummary 
+  name: input_types
+- !ruby/object:RI::MethodSummary 
+  name: nothing_to_find?
+name: MethodFinder
+superclass: Object

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::AdviceChainNode#do_call
+is_singleton: false
+name: do_call
+params: (proc_to, error_message_prefix, jp, obj, *args)
+visibility: protected

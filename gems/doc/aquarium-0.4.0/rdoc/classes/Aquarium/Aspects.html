@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Aquarium::Aspects</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Aquarium::Aspects</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/aquarium/aspects/advice_rb.html">
+                lib/aquarium/aspects/advice.rb
+                </a>
+        <br />
+                <a href="../../files/lib/aquarium/aspects/aspect_rb.html">
+                lib/aquarium/aspects/aspect.rb
+                </a>
+        <br />
+                <a href="../../files/lib/aquarium/aspects/default_objects_handler_rb.html">
+                lib/aquarium/aspects/default_objects_handler.rb
+                </a>
+        <br />
+                <a href="../../files/lib/aquarium/aspects/dsl/aspect_dsl_rb.html">
+                lib/aquarium/aspects/dsl/aspect_dsl.rb
+                </a>
+        <br />
+                <a href="../../files/lib/aquarium/aspects/exclusion_handler_rb.html">
+                lib/aquarium/aspects/exclusion_handler.rb
+                </a>
+        <br />
+                <a href="../../files/lib/aquarium/aspects/join_point_rb.html">
+                lib/aquarium/aspects/join_point.rb
+                </a>
+        <br />
+                <a href="../../files/lib/aquarium/aspects/pointcut_rb.html">
+                lib/aquarium/aspects/pointcut.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Module <a href="Aspects/Advice.html" class="link">Aquarium::Aspects::Advice</a><br />
+Module <a href="Aspects/AdviceChainNodeFactory.html" class="link">Aquarium::Aspects::AdviceChainNodeFactory</a><br />
+Module <a href="Aspects/DSL.html" class="link">Aquarium::Aspects::DSL</a><br />
+Module <a href="Aspects/DefaultObjectsHandler.html" class="link">Aquarium::Aspects::DefaultObjectsHandler</a><br />
+Module <a href="Aspects/ExclusionHandler.html" class="link">Aquarium::Aspects::ExclusionHandler</a><br />
+Class <a href="Aspects/AdviceChainNode.html" class="link">Aquarium::Aspects::AdviceChainNode</a><br />
+Class <a href="Aspects/AfterAdviceChainNode.html" class="link">Aquarium::Aspects::AfterAdviceChainNode</a><br />
+Class <a href="Aspects/AfterRaisingAdviceChainNode.html" class="link">Aquarium::Aspects::AfterRaisingAdviceChainNode</a><br />
+Class <a href="Aspects/AfterReturningAdviceChainNode.html" class="link">Aquarium::Aspects::AfterReturningAdviceChainNode</a><br />
+Class <a href="Aspects/AroundAdviceChainNode.html" class="link">Aquarium::Aspects::AroundAdviceChainNode</a><br />
+Class <a href="Aspects/Aspect.html" class="link">Aquarium::Aspects::Aspect</a><br />
+Class <a href="Aspects/BeforeAdviceChainNode.html" class="link">Aquarium::Aspects::BeforeAdviceChainNode</a><br />
+Class <a href="Aspects/JoinPoint.html" class="link">Aquarium::Aspects::JoinPoint</a><br />
+Class <a href="Aspects/NoAdviceChainNode.html" class="link">Aquarium::Aspects::NoAdviceChainNode</a><br />
+Class <a href="Aspects/Pointcut.html" class="link">Aquarium::Aspects::Pointcut</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

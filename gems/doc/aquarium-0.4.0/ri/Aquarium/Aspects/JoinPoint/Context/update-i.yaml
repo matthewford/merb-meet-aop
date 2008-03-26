@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::JoinPoint::Context#update
+is_singleton: false
+name: update
+params: (options)
+visibility: public

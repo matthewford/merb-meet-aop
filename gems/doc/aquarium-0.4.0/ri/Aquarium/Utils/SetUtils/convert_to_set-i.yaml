@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Utils::SetUtils#convert_to_set
+is_singleton: false
+name: convert_to_set
+params: (*value_or_set_or_array)
+visibility: protected

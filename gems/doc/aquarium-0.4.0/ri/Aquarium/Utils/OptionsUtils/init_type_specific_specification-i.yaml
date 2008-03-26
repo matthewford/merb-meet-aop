@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Override for type-specific initialization
+full_name: Aquarium::Utils::OptionsUtils#init_type_specific_specification
+is_singleton: false
+name: init_type_specific_specification
+params: (original_options, options_hash, &optional_block)
+visibility: public

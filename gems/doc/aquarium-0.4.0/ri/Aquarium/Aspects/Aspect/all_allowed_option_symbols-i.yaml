@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#all_allowed_option_symbols
+is_singleton: false
+name: all_allowed_option_symbols
+params: ()
+visibility: public

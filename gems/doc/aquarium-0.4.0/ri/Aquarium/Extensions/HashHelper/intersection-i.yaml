@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #and"
+full_name: Aquarium::Extensions::HashHelper#intersection
+is_singleton: false
+name: intersection
+params: (other_hash)
+visibility: public

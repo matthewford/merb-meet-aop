@@ -1,0 +1,55 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: is_recognized_option
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: TYPES_SYNONYMS
+  value: "%w[name names type types]"
+full_name: Aquarium::Finders::TypeFinder
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::ArrayUtils
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::TypeUtils
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_ancestors
+- !ruby/object:RI::MethodSummary 
+  name: add_descendents
+- !ruby/object:RI::MethodSummary 
+  name: empty
+- !ruby/object:RI::MethodSummary 
+  name: find
+- !ruby/object:RI::MethodSummary 
+  name: find_by_name
+- !ruby/object:RI::MethodSummary 
+  name: find_matching
+- !ruby/object:RI::MethodSummary 
+  name: find_namespace_matched
+- !ruby/object:RI::MethodSummary 
+  name: find_next_types
+- !ruby/object:RI::MethodSummary 
+  name: finish_and_make_successful_result
+- !ruby/object:RI::MethodSummary 
+  name: handle_ancestors_and_descendents
+- !ruby/object:RI::MethodSummary 
+  name: handle_errors
+- !ruby/object:RI::MethodSummary 
+  name: make_failed_result
+- !ruby/object:RI::MethodSummary 
+  name: make_return_hash
+- !ruby/object:RI::MethodSummary 
+  name: prettify
+- !ruby/object:RI::MethodSummary 
+  name: should_find_ancestors
+- !ruby/object:RI::MethodSummary 
+  name: should_find_descendents
+- !ruby/object:RI::MethodSummary 
+  name: strip
+name: TypeFinder
+superclass: Object

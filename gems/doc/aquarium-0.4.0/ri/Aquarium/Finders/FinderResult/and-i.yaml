@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: intersection
+- !ruby/object:RI::AliasName 
+  name: "&"
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "&quot;And&quot; two results together"
+full_name: Aquarium::Finders::FinderResult#and
+is_singleton: false
+name: and
+params: (other_result)
+visibility: public

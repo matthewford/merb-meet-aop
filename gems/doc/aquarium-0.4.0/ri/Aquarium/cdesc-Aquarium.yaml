@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: One implementation of the Null Object Pattern (renamed &quot;Nil&quot; for Ruby). All methods not defined by Object simply return the Aquarium::Utils::NilObject itself. Users can subclass or add methods to instances to customize the behavior.
+constants: []
+
+full_name: Aquarium
+includes: []
+
+instance_methods: []
+
+name: Aquarium
+superclass: 

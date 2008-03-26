@@ -1,5 +1,5 @@
 class Users < Application
-  # provides :xml, :yaml, :js
+  provides :xml, :yaml, :js
   
   def index
     @users = User.all
@@ -8,8 +8,9 @@ class Users < Application
 
   def show
     @user = User.first(params[:id])
-    raise NotFound unless @user
     display @user
+    rescue DataMapper::ObjectNotFoundError
+      raise NotFound
   end
 
   def new
@@ -21,8 +22,9 @@ class Users < Application
   def edit
     only_provides :html
     @user = User.first(params[:id])
-    raise NotFound unless @user
     render
+    rescue DataMapper::ObjectNotFoundError
+      raise NotFound
   end
 
   def create
@@ -36,22 +38,24 @@ class Users < Application
 
   def update
     @user = User.first(params[:id])
-    raise NotFound unless @user
     if @user.update_attributes(params[:user])
       redirect url(:user, @user)
     else
       raise BadRequest
     end
+    rescue DataMapper::ObjectNotFoundError
+      raise NotFound
   end
 
   def destroy
     @user = User.first(params[:id])
-    raise NotFound unless @user
     if @user.destroy!
       redirect url(:users)
     else
       raise BadRequest
     end
+    rescue DataMapper::ObjectNotFoundError
+      raise NotFound
   end
   
 end

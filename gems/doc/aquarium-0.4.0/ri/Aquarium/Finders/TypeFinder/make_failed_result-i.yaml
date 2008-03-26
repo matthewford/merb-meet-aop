@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::TypeFinder#make_failed_result
+is_singleton: false
+name: make_failed_result
+params: (name)
+visibility: protected

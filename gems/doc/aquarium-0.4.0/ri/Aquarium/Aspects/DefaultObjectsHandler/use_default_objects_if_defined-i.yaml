@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::DefaultObjectsHandler#use_default_objects_if_defined
+is_singleton: false
+name: use_default_objects_if_defined
+params: ()
+visibility: public

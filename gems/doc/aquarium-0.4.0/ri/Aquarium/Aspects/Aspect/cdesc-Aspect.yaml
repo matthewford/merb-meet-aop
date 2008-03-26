@@ -1,0 +1,165 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: advice
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: pointcuts
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: specification
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: advice_chain_exists?
+- !ruby/object:RI::MethodSummary 
+  name: advice_chain_inspect
+- !ruby/object:RI::MethodSummary 
+  name: aspect_method_prefix
+- !ruby/object:RI::MethodSummary 
+  name: determine_type_or_object
+- !ruby/object:RI::MethodSummary 
+  name: get_advice_chain
+- !ruby/object:RI::MethodSummary 
+  name: is_type_join_point?
+- !ruby/object:RI::MethodSummary 
+  name: make_advice_chain_attr_sym
+- !ruby/object:RI::MethodSummary 
+  name: make_saved_method_name
+- !ruby/object:RI::MethodSummary 
+  name: make_type_or_object_key
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: remove_advice_chain
+- !ruby/object:RI::MethodSummary 
+  name: set_advice_chain
+- !ruby/object:RI::MethodSummary 
+  name: type_to_advise_for
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Aspect
+- !ruby/struct:SM::Flow::P 
+  body: Aspects &quot;advise&quot; one or more method invocations for one or more types or objects (including class methods on types). The corresponding advice is a Proc that is invoked either before the join point, after it returns, after it raises an exception, after either event, or around the join point, meaning the advice runs and it decides when and if to invoke the advised method. (Hence, around advice can run code before and after the join point call and it can &quot;veto&quot; the actual join point call).
+- !ruby/struct:SM::Flow::P 
+  body: See also Aquarium::Aspects::DSL::AspectDsl for more information.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CANONICAL_OPTIONS
+  value: Pointcut::CANONICAL_OPTIONS.merge({         "advice"            => %w[action do_action use_advice advise_with invoke call],         "pointcuts"         => %w[pointcut within_pointcuts within_pointcut on_pointcuts on_pointcut],         "exclude_pointcuts" => %w[exclude_pointcut exclude_on_pointcut exclude_on_pointcuts exclude_within_pointcut exclude_within_pointcuts],         "ignore_no_matching_join_points" => %[ignore_no_jps]
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ALL_ALLOWED_OPTIONS
+  value: CANONICAL_OPTIONS.keys.inject([]) {|ary,i| ary << i << CANONICAL_OPTIONS[i]}.flatten +         Pointcut::ATTRIBUTE_OPTIONS
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ALL_ALLOWED_OPTION_SYMBOLS
+  value: ALL_ALLOWED_OPTIONS.map {|o| o.intern} + Advice::kinds
+full_name: Aquarium::Aspects::Aspect
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Advice
+- !ruby/object:RI::IncludedModule 
+  name: ExclusionHandler
+- !ruby/object:RI::IncludedModule 
+  name: DefaultObjectsHandler
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Aspects
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::ArrayUtils
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::HashUtils
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::HtmlEscaper
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::OptionsUtils
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: add_advice_framework
+- !ruby/object:RI::MethodSummary 
+  name: add_advice_to_chain
+- !ruby/object:RI::MethodSummary 
+  name: advice_kinds_given
+- !ruby/object:RI::MethodSummary 
+  name: advice_kinds_given?
+- !ruby/object:RI::MethodSummary 
+  name: advise_join_points
+- !ruby/object:RI::MethodSummary 
+  name: alias_original_method_text
+- !ruby/object:RI::MethodSummary 
+  name: all_allowed_option_symbols
+- !ruby/object:RI::MethodSummary 
+  name: bad_options
+- !ruby/object:RI::MethodSummary 
+  name: calculate_excluded_types
+- !ruby/object:RI::MethodSummary 
+  name: def_eigenclass_method_text
+- !ruby/object:RI::MethodSummary 
+  name: determine_advice
+- !ruby/object:RI::MethodSummary 
+  name: eql?
+- !ruby/object:RI::MethodSummary 
+  name: get_jps
+- !ruby/object:RI::MethodSummary 
+  name: init_pointcuts
+- !ruby/object:RI::MethodSummary 
+  name: init_type_specific_specification
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: interesting_join_points
+- !ruby/object:RI::MethodSummary 
+  name: join_point_for_aspect_implementation_method?
+- !ruby/object:RI::MethodSummary 
+  name: join_points_matched
+- !ruby/object:RI::MethodSummary 
+  name: join_points_not_matched
+- !ruby/object:RI::MethodSummary 
+  name: need_advice_framework?
+- !ruby/object:RI::MethodSummary 
+  name: private_method_defined?
+- !ruby/object:RI::MethodSummary 
+  name: prune_nodes_in_advice_chain_for
+- !ruby/object:RI::MethodSummary 
+  name: rationalize
+- !ruby/object:RI::MethodSummary 
+  name: remove_advice_for_aspect_at
+- !ruby/object:RI::MethodSummary 
+  name: remove_advice_framework_for
+- !ruby/object:RI::MethodSummary 
+  name: remove_excluded_join_points_and_empty_pointcuts
+- !ruby/object:RI::MethodSummary 
+  name: restore_original_method_text
+- !ruby/object:RI::MethodSummary 
+  name: should_warn_if_no_matching_join_points
+- !ruby/object:RI::MethodSummary 
+  name: some_type_option_given?
+- !ruby/object:RI::MethodSummary 
+  name: some_type_or_pc_option_given?
+- !ruby/object:RI::MethodSummary 
+  name: specified_advice_kinds
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: unadvise
+- !ruby/object:RI::MethodSummary 
+  name: unadvise_join_points
+- !ruby/object:RI::MethodSummary 
+  name: unalias_original_method_text
+- !ruby/object:RI::MethodSummary 
+  name: undef_eigenclass_method_text
+- !ruby/object:RI::MethodSummary 
+  name: use_first_nonadvice_symbol_as_method
+- !ruby/object:RI::MethodSummary 
+  name: validate_specification
+- !ruby/object:RI::MethodSummary 
+  name: warn_if_no_join_points_matched
+name: Aspect
+superclass: Object

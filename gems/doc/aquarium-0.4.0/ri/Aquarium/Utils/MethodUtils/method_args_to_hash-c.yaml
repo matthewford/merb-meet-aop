@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: arg
+comment: 
+full_name: Aquarium::Utils::MethodUtils::method_args_to_hash
+is_singleton: true
+name: method_args_to_hash
+params: (*args) {|arg| ...}
+visibility: public

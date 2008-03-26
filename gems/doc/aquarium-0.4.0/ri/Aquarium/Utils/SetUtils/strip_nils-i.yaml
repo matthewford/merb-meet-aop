@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return a new set that is a copy of the input set with all nils removed.
+full_name: Aquarium::Utils::SetUtils#strip_nils
+is_singleton: false
+name: strip_nils
+params: (set)
+visibility: public

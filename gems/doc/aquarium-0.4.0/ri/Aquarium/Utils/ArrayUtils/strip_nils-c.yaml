@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Utils::ArrayUtils::strip_nils
+is_singleton: true
+name: strip_nils
+params: (array)
+visibility: public

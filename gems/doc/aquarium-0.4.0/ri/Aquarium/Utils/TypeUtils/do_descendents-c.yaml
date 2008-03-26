@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: For JRuby classes, we have to &quot;<em>x</em>&quot; forms of the reflection methods that don't end in '?'. That includes &quot;send&quot;, so we do some ugly switching, rather than call &quot;mod.send(method_name)&quot; or &quot;mod.<em>send</em>(method_name)&quot;!
+full_name: Aquarium::Utils::TypeUtils::do_descendents
+is_singleton: true
+name: do_descendents
+params: (clazz, visiting_module, visited, result)
+visibility: protected

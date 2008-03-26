@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Some classes and modules support a :default_objects flag and use it if no type or object is specified. For &quot;convenience&quot;, requires that classes and modules including this module have a hash @specification defined with keys :default_objects, :types, and :objects.
+constants: []
+
+full_name: Aquarium::Aspects::DefaultObjectsHandler
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::ArrayUtils
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: default_objects_given
+- !ruby/object:RI::MethodSummary 
+  name: default_objects_given?
+- !ruby/object:RI::MethodSummary 
+  name: use_default_objects_if_defined
+name: DefaultObjectsHandler
+superclass: 

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#prune_nodes_in_advice_chain_for
+is_singleton: false
+name: prune_nodes_in_advice_chain_for
+params: (join_point)
+visibility: protected

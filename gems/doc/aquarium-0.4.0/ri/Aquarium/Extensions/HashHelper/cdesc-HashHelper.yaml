@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Aquarium::Extensions::HashHelper
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "&"
+- !ruby/object:RI::MethodSummary 
+  name: "-"
+- !ruby/object:RI::MethodSummary 
+  name: and
+- !ruby/object:RI::MethodSummary 
+  name: eql_when_keys_compared?
+- !ruby/object:RI::MethodSummary 
+  name: equivalent_key
+- !ruby/object:RI::MethodSummary 
+  name: intersection
+- !ruby/object:RI::MethodSummary 
+  name: minus
+- !ruby/object:RI::MethodSummary 
+  name: or
+- !ruby/object:RI::MethodSummary 
+  name: union
+- !ruby/object:RI::MethodSummary 
+  name: "|"
+name: HashHelper
+superclass: 

@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Defines methods shared by several classes that take :exclude_* arguments.
+constants: []
+
+full_name: Aquarium::Aspects::ExclusionHandler
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: is_excluded_join_point?
+- !ruby/object:RI::MethodSummary 
+  name: is_excluded_method?
+- !ruby/object:RI::MethodSummary 
+  name: is_excluded_pointcut?
+- !ruby/object:RI::MethodSummary 
+  name: is_excluded_type_or_object?
+- !ruby/object:RI::MethodSummary 
+  name: is_explicitly_excluded_method?
+- !ruby/object:RI::MethodSummary 
+  name: join_point_excluded?
+- !ruby/object:RI::MethodSummary 
+  name: matches_excluded_method_regex?
+name: ExclusionHandler
+superclass: 

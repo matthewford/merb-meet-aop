@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Utils::OptionsUtils::universal_options
+is_singleton: true
+name: universal_options
+params: ()
+visibility: public

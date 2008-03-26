@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::MethodFinder::is_recognized_method_option
+is_singleton: true
+name: is_recognized_method_option
+params: (string_or_symbol)
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Convenience method to get the keys for the items that did not match.
+full_name: Aquarium::Finders::FinderResult#not_matched_keys
+is_singleton: false
+name: not_matched_keys
+params: ()
+visibility: public

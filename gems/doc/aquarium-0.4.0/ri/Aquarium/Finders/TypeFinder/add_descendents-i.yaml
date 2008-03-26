@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::TypeFinder#add_descendents
+is_singleton: false
+name: add_descendents
+params: (types)
+visibility: protected

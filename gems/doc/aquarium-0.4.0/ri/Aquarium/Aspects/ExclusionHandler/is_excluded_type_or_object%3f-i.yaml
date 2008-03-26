@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::ExclusionHandler#is_excluded_type_or_object?
+is_singleton: false
+name: is_excluded_type_or_object?
+params: (type_or_object)
+visibility: public

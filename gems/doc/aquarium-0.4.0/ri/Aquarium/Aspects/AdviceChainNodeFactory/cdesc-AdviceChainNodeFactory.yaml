@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: make_node
+- !ruby/object:RI::MethodSummary 
+  name: valid
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: The advice_kind argument must be one of the values returned by Advice.kinds or one of the special values &quot;:no&quot; or &quot;:none&quot;, signfying a node for which there is no advice, where the actual method being advised is called directly instead. This kind of node is normally used as the terminal leaf in the chain.
+constants: []
+
+full_name: Aquarium::Aspects::AdviceChainNodeFactory
+includes: []
+
+instance_methods: []
+
+name: AdviceChainNodeFactory
+superclass: 

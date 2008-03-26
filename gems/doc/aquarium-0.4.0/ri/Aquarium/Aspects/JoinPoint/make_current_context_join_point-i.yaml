@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::JoinPoint#make_current_context_join_point
+is_singleton: false
+name: make_current_context_join_point
+params: (context_options)
+visibility: public

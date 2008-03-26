@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect::determine_type_or_object
+is_singleton: true
+name: determine_type_or_object
+params: (join_point)
+visibility: protected

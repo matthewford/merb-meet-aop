@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::TypeFinder#handle_errors
+is_singleton: false
+name: handle_errors
+params: (unknown_options, input_type_nil)
+visibility: protected

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#remove_advice_framework_for
+is_singleton: false
+name: remove_advice_framework_for
+params: (join_point)
+visibility: protected

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Note that we extract the block passed to the original method call, if any, from the context and pass it to method invocation.
+full_name: Aquarium::Aspects::NoAdviceChainNode::new
+is_singleton: true
+name: new
+params: (options = {})
+visibility: public

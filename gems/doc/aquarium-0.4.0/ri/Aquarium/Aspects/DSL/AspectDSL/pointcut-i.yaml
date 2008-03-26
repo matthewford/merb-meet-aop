@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::DSL::AspectDSL#pointcut
+is_singleton: false
+name: pointcut
+params: (*options, &block)
+visibility: public

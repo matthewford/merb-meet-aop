@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Return a set containing the input item or list of items. If the input is a set or an array, it is returned. In all cases, the constructed set is a flattened version of the input and any nil elements are removed by #strip_nils. Note that this behavior effectively converts <tt>nil</tt> to +[]+."
+full_name: Aquarium::Utils::SetUtils#make_set
+is_singleton: false
+name: make_set
+params: (*value_or_set_or_array)
+visibility: public

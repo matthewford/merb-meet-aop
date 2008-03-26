@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::TypeFinder#find_matching
+is_singleton: false
+name: find_matching
+params: (regexpes_or_names, option)
+visibility: protected

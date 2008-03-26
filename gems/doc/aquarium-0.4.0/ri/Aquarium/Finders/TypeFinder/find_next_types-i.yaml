@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::TypeFinder#find_next_types
+is_singleton: false
+name: find_next_types
+params: (enclosing_types, subexp, suppress_lh_ctrl_a, suppress_rh_ctrl_z)
+visibility: protected

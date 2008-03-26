@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: intersection
+- !ruby/object:RI::AliasName 
+  name: "&"
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Pointcut#and
+is_singleton: false
+name: and
+params: (pointcut2)
+visibility: public

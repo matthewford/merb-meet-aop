@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect::make_saved_method_name
+is_singleton: true
+name: make_saved_method_name
+params: (join_point)
+visibility: protected

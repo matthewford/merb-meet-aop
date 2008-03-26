@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: union
+- !ruby/object:RI::AliasName 
+  name: "|"
+block_params: value1, value2
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Union of self with a second hash, which returns a new hash. It's different from Hash#merge in that it attempts to merge non-equivalent values for the same key, using a block, if given, or if they are of the same type and respond to #|, using #| to merge the two values. Otherwise, it behaves like Hash#merge."
+full_name: Aquarium::Extensions::HashHelper#or
+is_singleton: false
+name: or
+params: (other_hash) {|value1, value2| ...}
+visibility: public

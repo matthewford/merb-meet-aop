@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: ==
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Two Considered equivalent only if the same join points matched and not_matched sets are equal, the specifications are equal, and the candidate types and candidate objects are equal. if you care only about the matched join points, then just compare #join_points_matched"
+full_name: Aquarium::Aspects::Pointcut#eql?
+is_singleton: false
+name: eql?
+params: (other)
+visibility: public

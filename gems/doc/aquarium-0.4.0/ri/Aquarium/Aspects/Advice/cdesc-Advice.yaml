@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: kinds
+- !ruby/object:RI::MethodSummary 
+  name: sort_by_priority_order
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KINDS_IN_PRIORITY_ORDER
+  value: "[:around, :before, :after, :after_returning, :after_raising]"
+full_name: Aquarium::Aspects::Advice
+includes: []
+
+instance_methods: []
+
+name: Advice
+superclass: 

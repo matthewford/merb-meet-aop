@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::MethodFinder#input_types
+is_singleton: false
+name: input_types
+params: ()
+visibility: protected

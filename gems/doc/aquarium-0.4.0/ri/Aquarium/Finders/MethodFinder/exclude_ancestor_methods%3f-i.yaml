@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::MethodFinder#exclude_ancestor_methods?
+is_singleton: false
+name: exclude_ancestor_methods?
+params: ()
+visibility: protected

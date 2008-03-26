@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::ExclusionHandler#matches_excluded_method_regex?
+is_singleton: false
+name: matches_excluded_method_regex?
+params: (method)
+visibility: public

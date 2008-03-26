@@ -1,0 +1,82 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Returns a Aquarium::Finders::FinderResult for the hash of types, type names, and/or regular expressions and the corresponding method name <b>symbols</b> found. Method names, not method objects, are always returned, because we can only get method objects for instance methods if we have an instance!
+- !ruby/struct:SM::Flow::P 
+  body: finder_result = MethodFinder.new.find :types =&gt; ... {, :methods =&gt; ..., :options =&gt; [...]} where &quot;{}&quot; indicate optional arguments
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:types =&gt; types_and_type_names_and_regexps</tt>:: <tt>:type =&gt; types_and_type_names_and_regexps</tt>:: <tt>:for_types =&gt; types_and_type_names_and_regexps</tt>:: <tt>:for_type =&gt; types_and_type_names_and_regexps</tt>:: <tt>:on_types =&gt; types_and_type_names_and_regexps</tt>:: <tt>:on_type =&gt; types_and_type_names_and_regexps</tt>:: <tt>:in_types =&gt; types_and_type_names_and_regexps</tt>:: <tt>:in_type =&gt; types_and_type_names_and_regexps</tt>:: <tt>:within_types =&gt; types_and_type_names_and_regexps</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:within_type  => types_and_type_names_and_regexps</tt>:"
+    body: One or more types, type names and/or regular expessions to match. Specify one or an array of values.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:objects =&gt; objects</tt>:: <tt>:object =&gt; objects</tt>:: <tt>:for_objects =&gt; objects</tt>:: <tt>:for_object =&gt; objects</tt>:: <tt>:on_objects =&gt; objects</tt>:: <tt>:on_object =&gt; objects</tt>:: <tt>:in_objects =&gt; objects</tt>:: <tt>:in_object =&gt; objects</tt>:: <tt>:within_objects =&gt; objects</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:within_object  => objects</tt>:"
+    body: "One or more objects to match. Specify one or an array of values. Note: Currently, string or symbol objects will be misinterpreted as type names!"
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:methods =&gt; method_names_and_regexps</tt>:: <tt>:method =&gt; method_names_and_regexps</tt>:: <tt>:within_methods =&gt; method_names_and_regexps</tt>:: <tt>:within_method =&gt; method_names_and_regexps</tt>:: <tt>:calling =&gt; method_names_and_regexps</tt>:: <tt>:invoking =&gt; method_names_and_regexps</tt>:: <tt>:calls_to =&gt; method_names_and_regexps</tt>:: <tt>:sending_message_to =&gt; method_names_and_regexps</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:sending_messages_to => method_names_and_regexps</tt>:"
+    body: One or more method names and regular expressions to match. Specify one or an array of values. If :all or :all_methods is specified, all methods will be matched. That is, these special values are equivalent to the the regular expression /.+/.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:exclude_methods =&gt; method_names_and_regexps</tt>:: <tt>:exclude_method =&gt; method_names_and_regexps</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:exclude_&lt;other_method_synonyms&gt; => method_names_and_regexps</tt>:"
+    body: One or more method names and regular expressions to exclude from the match. Specify one or an array of values.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:options =&gt; method_options</tt>:: <tt>:method_options =&gt; method_options</tt>:: <tt>:method_option =&gt; method_options</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:restricting_methods_to => method_options</tt>:"
+    body: By default, searches for public instance methods. Specify one or more of the following options for alternatives. You can combine any of the <tt>:public</tt>, <tt>:protected</tt>, and <tt>:private</tt>, as well as <tt>:instance</tt> and <tt>:class</tt>.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:public</tt> or <tt>:public_methods</tt>:"
+    body: Search for public methods (default).
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:private</tt> or <tt>:private_methods</tt>:"
+    body: Search for private methods.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:protected</tt> or <tt>:protected_methods</tt>:"
+    body: Search for protected methods.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:instance</tt> or <tt>:instance_methods</tt>:"
+    body: Search for instance methods.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:class</tt> or <tt>:class_methods</tt>:"
+    body: Search for class methods.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:singleton</tt> or <tt>:singleton_methods</tt>:"
+    body: Search for singleton methods. (Using :class for objects
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: won't work and :class, :public, :protected, and :private are ignored when looking for singleton methods.)
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:exclude_ancestor_methods</tt>:"
+    body: Suppress &quot;ancestor&quot; methods. This
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: means that if you search for a override method <tt>foo</tt> in a <tt>Derived</tt> class that is defined in the <tt>Base</tt> class, you won't find it!
+full_name: Aquarium::Finders::MethodFinder#find
+is_singleton: false
+name: find
+params: (options = {})
+visibility: public

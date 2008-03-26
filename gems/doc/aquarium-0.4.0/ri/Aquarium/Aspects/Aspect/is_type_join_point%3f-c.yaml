@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect::is_type_join_point?
+is_singleton: true
+name: is_type_join_point?
+params: (join_point)
+visibility: protected

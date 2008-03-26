@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Which type in a hierarchy actually defines a method?
+full_name: Aquarium::Utils::MethodUtils::definer
+is_singleton: true
+name: definer
+params: (type_or_instance, method_sym, class_or_instance_only = nil)
+visibility: public

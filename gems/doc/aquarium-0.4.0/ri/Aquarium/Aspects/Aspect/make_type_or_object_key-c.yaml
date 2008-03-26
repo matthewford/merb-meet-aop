@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect::make_type_or_object_key
+is_singleton: true
+name: make_type_or_object_key
+params: (join_point)
+visibility: protected

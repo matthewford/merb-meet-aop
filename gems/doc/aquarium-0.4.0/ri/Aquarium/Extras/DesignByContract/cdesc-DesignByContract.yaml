@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Aquarium::Extras::DesignByContract
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Aspects
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: invariant
+- !ruby/object:RI::MethodSummary 
+  name: postcondition
+- !ruby/object:RI::MethodSummary 
+  name: precondition
+name: DesignByContract
+superclass: 

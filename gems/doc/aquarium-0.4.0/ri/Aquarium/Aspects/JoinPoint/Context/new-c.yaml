@@ -1,0 +1,33 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Create a join point object. It must have one and only type <em>or</em> object and one method or the special keywords <tt>:all</tt>. Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " join_point = JoinPoint.new.find :type =&gt; ..., :method_name =&gt; ... [, (:class_method | :instance_method) =&gt; (true | false) ]\n"
+- !ruby/struct:SM::Flow::P 
+  body: where
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:type => type_or_type_name_or_regexp</tt>:"
+    body: A single type, type name or regular expression matching only one type. One and only one type <em>or</em> object is required. An error is raised otherwise.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:method_name =&gt; method_name_or_sym</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:method => method_name_or_sym</tt>:"
+    body: A single method name or symbol. Only one is allowed, although the special flag <tt>:all</tt> is allowed.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>(:class_method | :instance_method) => (true | false)</tt>:"
+    body: Is the method a class or instance method? Defaults to <tt>:instance_method =&gt; true</tt>.
+  type: :NOTE
+full_name: Aquarium::Aspects::JoinPoint::Context::new
+is_singleton: true
+name: new
+params: (options)
+visibility: public

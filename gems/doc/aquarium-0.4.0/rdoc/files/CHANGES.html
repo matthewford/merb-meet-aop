@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: CHANGES</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>CHANGES</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>CHANGES
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Mar 23 11:37:45 +0000 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>Version 0.4.0</h2>
+<p>
+V0.4.0 adds specs to characterize and test advising Java classes when
+running on JRuby and adds several API enhancements.
+</p>
+<p>
+Bug fixes: 17844 JRuby - Advising types, <a
+href="../classes/Aquarium.html">Aquarium</a> thinks the type is a string
+17883 Workaround for JRUBY-2089 18090 JoinPoint#invoke_original_join_point
+only works with :around advice
+</p>
+<p>
+Enhancements: 17834 Allow :class and :module (and variants) wherever :type
+is allowed 17881 Add specs that exercise advising Java types and objects
+using JRuby
+</p>
+<p>
+17844 occurred because of the way JRuby encodes Java packages into modules.
+<a href="../classes/Aquarium.html">Aquarium</a> now properly handles JRuby
+types.
+</p>
+<p>
+17883 reflected a JRuby bug, so a workaround was required.
+</p>
+<p>
+17834 allows the user to substitute the words &quot;class&quot;,
+&quot;classes&quot;, &quot;module&quot; or &quot;modules&quot; anywhere the
+words &quot;type&quot; and &quot;types&quot; are used in the API, since
+some users might naturally want to write aspects like this:
+</p>
+<pre>
+        around :calls_to =&gt; :my_method, :in_class =&gt; MyClass do ...; end
+</pre>
+<p>
+However, there is no enforcement to ensure that &quot;class&quot; is only
+used for classes and &quot;module&quot; is only used for modules, etc.
+Note: it&#8216;s possible we&#8216;ll enforce this in some future release,
+as a way of saying things like &quot;only advise classes that match
+&#8230;&quot;, etc. Caveat Emptor!
+</p>
+<p>
+For 18090, a bug prevented JoinPoint#invoke_original_join_point (which
+allows you to bypass all advices at the join point) from working except for
+:around advice (and yes, the specs didn&#8216;t cover this adequately -
+gasp!). Now fixed.
+</p>
+<p>
+For 17881, I created a separate set of specs for JRuby, so it&#8216;s
+easier to run the &quot;regular&quot; <a
+href="../classes/Aquarium.html">Aquarium</a> specs using MRI and the
+JRuby-specific specs separately with JRuby. The new &quot;jruby&quot;
+directory contains a Rakefile, another set of specs, and Java example code
+for the specs to use. The default Rakefile task re-runs the main <a
+href="../classes/Aquarium.html">Aquarium</a> spec suite using JRuby, to
+confirm that the suite passes successfully, then it runs a set of different
+specs that load sample Java interfaces and classes into JRuby and then
+advises them with <a href="../classes/Aquarium.html">Aquarium</a>.
+</p>
+<p>
+I found a few JRuby bugs and other behavior differences between MRI during
+this release. I was able to handle them with modifications to the <a
+href="../classes/Aquarium.html">Aquarium</a> code. If you &quot;grep&quot;
+the <a href="../classes/Aquarium.html">Aquarium</a> &quot;lib&quot; and
+&quot;spec&quot; directories for the word &quot;jruby&quot; (ignoring
+case), you&#8216;ll find notes about these issues and the workarounds I
+implemented.
+</p>
+<p>
+The separate JRuby spec suite shows what you can and cannot do with Java
+types. As a side benefit, it also demonstrates how Java types, objects, and
+methods are mapped to Ruby. There are some important limitations, however.
+See the jruby.html page on the website or the README for more details.
+</p>
+<p>
+Note: JRuby 1.1RC2 was used.
+</p>
+<h2>Version 0.3.1</h2>
+<p>
+V0.3.1 adds numerous performance improvements, especially in the RSpec
+suite, and some minor API additions.
+</p>
+<p>
+Bug fixes: N.A.
+</p>
+<p>
+Enhancements: 14447 Unify internal handling of reporting errors to the user
+17514 Provide an <a href="../classes/Aquarium.html">Aquarium</a>
+library-wide logger with configuration parameters and instance overrides
+17515 Add an optional warning if an aspect doesn&#8216;t match any join
+points 17516 Remove unnecessary examples that use :types_and_descendents to
+shorten time to run the RSpec suite 17565 JoinPoint.new should convert a
+type name, symbol, or regex to the type and only allow one type
+</p>
+<p>
+These first two enhancements are related. There is a now an <a
+href="../classes/Aquarium/Utils/DefaultLogger.html">Aquarium::Utils::DefaultLogger</a>
+module with static accessors for getting and setting the
+&quot;system-wide&quot; logger.
+</p>
+<p>
+When instance-level overrides are necessary, the <a
+href="../classes/Aquarium/Utils/OptionsUtils.html">Aquarium::Utils::OptionsUtils</a>
+provides &quot;universal&quot; options (but currently used only by Aspect
+and Pointcut) for specifying a logger (with the new :logger parameter), or
+alternatively, specifying just the output stream (:logger_stream) and/or
+the severity (:severity, one of the standard library&#8216;s
+Logger::Severity-defined constants). If either of the latter two options is
+specified, a separate logger instance is created, rather than changing
+parameters for the global logger.
+</p>
+<p>
+OptionsUtils also supports a :noop parameter, which classes interpret to
+mean do none (or perhaps only some) of the processing. Useful for
+debugging.
+</p>
+<p>
+17515 adds a helpful warning to the system (or aspect-instance&#8216;s)
+logger if an aspect matches no join points. This warning will be suppressed
+if (i) the severity level for the logger is above WARN or (ii) the aspect
+was created with the option
+</p>
+<pre>
+        :ignore_no_matching_join_points =&gt; true.
+</pre>
+<p>
+17516 fixes halved the long execution times for the whole RSpec suite by
+refactoring some examples that used type finders with the
+:types_and_descendents option unnecessarily. It is a very intensive
+computation! Note that I stubbed out these calls using an aspect with
+around advise, a useful &quot;development-time&quot; aspect. See
+Aquarium::TypeUtilsStub (in spec_example_types.rb) and how it&#8216;s used
+in pointcut_spec.rb. Using this technique and other optimizations, the time
+to run the suite was reduced from ~5 minutes to about 1 minute.
+</p>
+<p>
+17565 fixes a &quot;hole&quot; in JoinPoint, where it doesn&#8216;t confirm
+that a specified type string, symbol or regex matches a class that exists
+and only one class. Now it does and it stores the type, rather than the
+original &quot;specification&quot; for it.
+</p>
+<h2>Version 0.3.0</h2>
+<p>
+V0.3.0 adds numerous improvements to the DSL, making aspect specification
+more intuitive and English-like. For example, where you previously wrote,
+e.g.,
+</p>
+<pre>
+        around :methods =&gt; :all, :types =&gt; [Foo, Bar], :advice =&gt; advice_proc
+        after  :attribute =&gt; name, :attribute_options =&gt; [:readers], :objects =&gt; [foo, bar] ...
+</pre>
+<p>
+Now you can write the same aspects as follows:
+</p>
+<pre>
+        around :calls_to =&gt; :all_methods, :within_types =&gt; [Foo, Bar], :use_advice =&gt; advice_proc
+        after  :reading =&gt; name, :on_objects =&gt; [foo, bar] ...
+</pre>
+<p>
+Other improvements include performance and robustness enhancements and
+miscellaneous internal refactoring and DRY improvements.
+</p>
+<p>
+Bug fixes: 16267 gem not updating
+</p>
+<p>
+Enhancements: 17154 More intuitive synonyms for specifying types, methods
+and attributes
+</p>
+<p>
+For 17154, the following changes were made: Added :all_methods as a synonym
+for the :all special value. Added :reading as a synonym for :attributes
+=&gt; &#8230;, :attribute_options =&gt; [:readers] Added :writing and
+:changing as synonyms for :attributes =&gt; &#8230;, :attribute_options
+=&gt; [:writers] Added :accessing as a synonym for :attributes =&gt;
+&#8230; Added :calls_to, :calling, :invoking, :sending_message_to as
+synonyms for :methods. Added :on_types, :in_types, :within_types and
+:for_types as synonyms for :types. The same set of prefixes is supported
+for :type, :objects, :object, and the various :exclude_*, :*_and_ancestors,
+and :*_and_descendents.
+</p>
+<p>
+The full list of possible synonyms are shown in the spec examples. In
+particular, see &quot;pointcut_spec.rb&quot;.
+</p>
+<h2>Version 0.2.0</h2>
+<p>
+V0.2.0 changes the parameter list used for advice blocks and adds numerous
+enhancements, robustness improvements and more complete
+&quot;spec&#8216;ing&quot;.
+</p>
+<p>
+Bug fixes: none
+</p>
+<p>
+Enhancements: 13402 Support a subclass syntax like AspectJ&#8216;s
+&quot;Type+&quot; 13984 More flexible argument list to the advise block
+14053 Remove JoinPoint#type, JoinPoint#type=, JoinPoint#object, and
+JoinPoint#object= 14061 Add a control flow mechanism to skipping (sic)
+intermediate advice 15164 Deprecate ObjectFinder 15413 Remove ObjectFinder
+15710 Eliminate redundant public methods in various &quot;finders&quot;
+</p>
+<p>
+13402 adds new invocation options to specify types and their descendents
+(subclasses or modules that include the specified module(s)) and ancestors.
+The latter should be used cautiously as it will include things like Kernel,
+<a href="../classes/Object.html">Object</a>, and Class! I used new command
+options rather than the AspectJ &quot;+&quot; suffix (and the proposed, but
+never implemented &quot;-&quot; suffix for ancestors), because the
+&quot;+&quot; would be confusing with regular expressions and not in the
+spirit of trying to make the pointcut language &quot;easy to read&quot;.
+So, the following are now available:
+</p>
+<pre>
+  :type_and_ancestors
+  :types_and_ancestors
+  :type_and_descendents
+  :types_and_descendents
+</pre>
+<p>
+And the corresponding:
+</p>
+<pre>
+  :exclude_type_and_ancestors
+  :exclude_types_and_ancestors
+  :exclude_type_and_descendents
+  :exclude_types_and_descendents
+</pre>
+<p>
+If you want both the ancestors and descendents, just use both options with
+the same value.
+</p>
+<p>
+13984 adds the object as the second argument to the advice block parameter
+list. This change reflects the fact that the object is often needed, but
+calling jp.context.advised_object is a bit tedious. THIS CHANGE BREAKS
+BACKWARDS COMPATIBILITY!! An exception is raised if advice has the
+signature |jp, *args|.
+</p>
+<p>
+14061 adds a new method, JoinPoint#invoke_original_join_point, which will
+invoke the original method without intermediate advice. If called within
+around advice, you can write advice that vetoes all subsequent advice, yet
+invokes the original method. Use this technique cautiously, however, since
+you may not always know what other advices are involved and what side
+effects this control-flow change might cause.
+</p>
+<p>
+15164 and 15413 remove ObjectFinder because it is not used and it requires
+ObjectSpace, which has high overhead and won&#8216;t be enabled, by
+default, in JRuby (it will be optional).
+</p>
+<p>
+15710 removes redundant methods that were becoming a maintenance issue, in
+particular, MethodFinder#find_all_by and TypeFinder#find_by_name. This is a
+non-backwards-compatible API change.
+</p>
+<p>
+Finally, note that I have not yet been able to resolve bug 15202,
+&quot;Intermittent confusion between classes and objects when invoking
+advice.&quot; I believe this is a very rare occurrence and only likely to
+ever happen during the &quot;torture-test&quot; of running the RSpec suite.
+Please post a comment to Tracker if you encounter it!
+</p>
+<h2>Version 0.1.8</h2>
+<p>
+V0.1.7 did not successfully &quot;register&quot; at rubyforge. This
+releases fixes that problem and also adds several feature enhancements and
+refactorings. There are no known upgrade issues.
+</p>
+<p>
+Bug fixes: none
+</p>
+<p>
+Enhancements: 13399 Add :exclusion options for methods and types. 14707
+:exclude_ancestor_methods as synonym for :suppress_ancestor_methods
+</p>
+<p>
+13399 adds new
+:exclude_(pointcuts|join_points|types|objects|methods|attributes) options
+for Aspect.new, and Pointcut.new that make it easier to specify a list or
+regular expression for various &quot;items&quot; and then to exclude
+particular items, e.g.,
+</p>
+<pre>
+        Aspect.new :around, :types =&gt; /nterestingType/, :exclude_types =&gt; UninterestingType ...
+</pre>
+<p>
+The :exclude_ancestor_methods option is now preferred over
+:suppress_ancestor_methods, since the former is more consistent with the
+new :exclude_* options.
+</p>
+<h2>Version 0.1.7</h2>
+<p>
+Bug fixes: 14946 Advice fails when instrumenting methods containing special
+characters 15038 Spec for pointcut example variation 1 15039 Spec for
+pointcut example variation 2 15085 Specifying just :attributes for aspects
+also matches all methods, as if :methods =&amp;gt; :all specified
+</p>
+<p>
+Enhancements: 13396 Unify internal handling of types vs. objects
+</p>
+<p>
+15038 and 15039 were bugs in one of the examples (actually in the
+comments). However, experimenting with them also revealed the nasty 15085
+bug!
+</p>
+<p>
+I previously handled some special characters in method names, but not all
+the possible ones, hence 14946. <a
+href="../classes/Aquarium.html">Aquarium</a> should now properly handle any
+valid Ruby method name.
+</p>
+<h2>Version 0.1.6</h2>
+<p>
+Bug fixes: 14353 Advising subclass method that calls super raises exception
+when method executed 14356 Regexps for types must cover the whole name,
+which is inconsistent with method/attribute regexps 14384 Design by
+Contract &quot;extra&quot; does not return correct value &quot;invar&quot;
+handling 13410 Fix funky navigation bar on website
+</p>
+<p>
+14353 was kind of bad, but it&#8216;s actually a Ruby bug with a good
+workaround. If you advised a method that called &quot;super&quot;, Ruby
+would use the wrong method name to lookup the class in the parent. See the
+bug description for the details.
+</p>
+<p>
+For 14356, type regular expressions now match on parts of names; they
+don&#8216;t have to match the whole name. The exception is regular
+expressions with module separators &quot;::&quot;. In this case, it seems
+to make more sense for the regular expression to be interpreted as follows:
+If the expression is /A::B::C::D/, then for the the outermost types, the
+expression behaves as /^.*A/, for the types between two &quot;::&quot;, the
+expressions behave as /^B$/ and /^C$/, and the trailing expression behaves
+as /D.*$/.
+</p>
+<p>
+14384 was an easy mistake to make with &quot;around&quot; advice; you have
+to remember to return the result of the &quot;join_point.proceed&quot;
+call, unless you specifically want to change the returned value! Here are
+two ways to do it:
+</p>
+<pre>
+        do_something_before(...)
+        result = join_point.proceed
+        do_something_after(...)
+        return result
+</pre>
+<p>
+or
+</p>
+<pre>
+        begin
+                do_something_before(...)
+                join_point.proceed
+        ensure
+                do_something_after(...)
+        end
+</pre>
+<p>
+The latter approach looks &quot;asymmetrical&quot; and it will behave
+differently if &quot;proceed&quot; raises! However, it eliminates the
+temporary, if you find that desirable.
+</p>
+<p>
+Enhancements: 13407 Pick a better method name for JoinPoint#type, which
+hides the Module#type 14385 Pointcut.new should accept a :join_point =&gt;
+jp argument 14386 Aspect.new &#8230;, :pointcut =&gt; should accept a join
+point object 14440 Add good warning message when &quot;proceed&quot; used
+for non-around advice
+</p>
+<p>
+For 13407, new attribute methods have been added
+</p>
+<ul>
+<li>JoinPoint#target_type return the type that the join_point matches.
+
+</li>
+<li>JoinPoint#target_type= set the type that the join_point matches.
+
+</li>
+<li>JoinPoint#target_object return the object that the join_point matches.
+
+</li>
+<li>JoinPoint#target_object= set the object that the join_point matches.
+
+</li>
+</ul>
+<p>
+The following, older methods are now deprecated and will be removed in the
+0.2.0 release (14053):
+</p>
+<ul>
+<li>JoinPoint#type
+
+</li>
+<li>JoinPoint#type=
+
+</li>
+<li>JoinPoint#object
+
+</li>
+<li>JoinPoint#object=
+
+</li>
+</ul>
+<p>
+JoinPoint#type method is deprecated because it hides Module#type, which
+returns the type of the corresponding object. For &quot;symmetry&quot;, the
+other three methods are also now deprecated and they will be removed in a
+future release. Until then, all will print a warning message to STDOUT. (If
+you really want the type of what could be a JoinPoint object, you should
+use class anyway, as Module#type is also deprecated!)
+</p>
+<h2>Version 0.1.5</h2>
+<p>
+Bug fixes: 13514 Protected and private methods are made public when advised
+and left that way when unadvised 13650 Loading <a
+href="../classes/Aquarium.html">Aquarium</a> interferes with Rails filters
+13864 Bug with negative object_id
+</p>
+<p>
+Enhancements: 13392 Convert examples to specs. 13463 Support running in
+JRuby
+</p>
+<p>
+Fixing 13650 required an API change, which is why I&#8216;ve tagged this
+release &quot;0.1.5&quot; instead of something like &quot;0.1.1&quot; (and
+the changes don&#8216;t seem big enough to warrant
+&quot;0.2.0&quot;&#8230;).
+</p>
+<p>
+Previously, requiring &quot;aquarium.rb&quot; in the top-level
+&quot;lib&quot; directory would implicitly require
+lib/aquarium/aspects/dsl/aspect_dsl.rb, which has <a
+href="../classes/Object.html">Object</a> include the AspectDSL module. This
+module adds methods like :before and :after to <a
+href="../classes/Object.html">Object</a>. Unfortunately, those methods
+collide with methods of the same name that Rails adds to <a
+href="../classes/Object.html">Object</a>. It was also a bit presumptuous of
+me to assume that everyone wanted those methods on <a
+href="../classes/Object.html">Object</a> ;)
+</p>
+<p>
+In this release, aspect_dsl.rb is still implicitly included and it still
+defines the AspectDSL module. Now, however, it does not include the
+AspectDSL module in <a href="../classes/Object.html">Object</a>. Instead,
+if you want this behavior for all types, you must require the new
+lib/aquarium/aspects/dsl/object_dsl.rb explicitly.
+</p>
+<p>
+As an alternative, if you just want the AspectDSL module included
+selectively in certain types, then do the following:
+</p>
+<pre>
+        class MyClass   # reopen &quot;MyClass&quot;
+                # Add the methods as _class_ methods
+                include Aquarium::Aspects::DSL::AspectDSL
+        end
+</pre>
+<p>
+or, use (class|module)_eval:
+</p>
+<pre>
+        require 'aquarium/aspects/dsl/aspect_dsl'
+
+        MyClass.class_eval do
+                # Add the methods as _class_ methods
+                include Aquarium::Aspects::DSL::AspectDSL
+        end
+</pre>
+<p>
+To add the methods as <em>instance</em> methods on individual objects:
+</p>
+<pre>
+        object = MyClass.new
+        object.extend(Aquarium::Aspects::DSL::AspectDSL)
+</pre>
+<p>
+Note: as discussed at <a
+href="http://practicalruby.blogspot.com/2007/02/reopen-with-moduleeval.html">practicalruby.blogspot.com/2007/02/reopen-with-moduleeval.html</a>,
+using &quot;class_eval&quot; or &quot;module_eval&quot; is safer that just
+reopening a class if you&#8216;re not sure that &quot;MyClass&quot; has
+actually been defined yet. However, in our particular case, it probably
+doesn&#8216;t matter, as AspectDSL doesn&#8216;t change anything about the
+type, like aliasing existing methods. Still, we can&#8216;t guarantee that
+this won&#8216;t change in the future.
+</p>
+<h2>Version 0.1.0</h2>
+<p>
+This is the initial version.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

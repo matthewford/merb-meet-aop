@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Override #== to fix behavior where it seems to ignore overrides of Object#== or Object#eql? when comparing set elements. Note that we can't put these definitions inside a helper module, as we do for other methods, and include in the reopened Hash class. If we do this, the method is not used!"
+constants: []
+
+full_name: Set
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: eql?
+- !ruby/object:RI::MethodSummary 
+  name: intersection_using_eql_comparison
+- !ruby/object:RI::MethodSummary 
+  name: union_using_eql_comparison
+name: Set
+superclass: Object

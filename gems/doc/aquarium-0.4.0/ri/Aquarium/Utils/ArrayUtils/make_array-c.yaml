@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Utils::ArrayUtils::make_array
+is_singleton: true
+name: make_array
+params: (*value_or_enum)
+visibility: public

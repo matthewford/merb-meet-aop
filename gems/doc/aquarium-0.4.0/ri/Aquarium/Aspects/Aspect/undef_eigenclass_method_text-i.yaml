@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: For the temporary eigenclass method wrapper, alias it to a temporary name then undefine it, so it completely disappears. Next, remove_method on the method name so the object starts responding again to the original definition.
+full_name: Aquarium::Aspects::Aspect#undef_eigenclass_method_text
+is_singleton: false
+name: undef_eigenclass_method_text
+params: (join_point)
+visibility: protected

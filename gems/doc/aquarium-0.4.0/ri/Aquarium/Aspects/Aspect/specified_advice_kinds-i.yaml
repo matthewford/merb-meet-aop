@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#specified_advice_kinds
+is_singleton: false
+name: specified_advice_kinds
+params: ()
+visibility: protected

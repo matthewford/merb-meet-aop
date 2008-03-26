@@ -1,0 +1,143 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: candidate_join_points
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: candidate_join_points
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: candidate_objects
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: candidate_objects
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: candidate_types
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: candidate_types
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: candidate_types_excluded
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: candidate_types_excluded
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: join_points_matched
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: join_points_matched
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: join_points_not_matched
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: join_points_not_matched
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: specification
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: specification
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: specification
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: make_attribute_reading_writing_options
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Pointcut (composition)
+- !ruby/struct:SM::Flow::P 
+  body: Since Pointcuts are queries, they can be composed, _i.e.,_ unions and intersections of them can be computed, yielding new Pointcuts.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CANONICAL_OPTIONS
+  value: "{         \"types\"                 => %w[type class classes module modules],         \"types_and_descendents\" => %w[type_and_descendents class_and_descendents classes_and_descendents module_and_descendents modules_and_descendents],         \"types_and_ancestors\"   => %w[type_and_ancestors class_and_ancestors classes_and_ancestors module_and_ancestors modules_and_ancestors],         \"objects\"               => %w[object],         \"join_points\"           => %w[join_point],         \"methods\"               => %w[method within_method within_methods calling invoking calls_to invocations_of sending_message_to sending_messages_to],         \"attributes\"            => %w[attribute accessing],         \"method_options\"        => %w[method_option restricting_methods_to],          \"attribute_options\"     => %w[attribute_option],         \"default_objects\"       => %w[default_object]"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ATTRIBUTE_OPTIONS
+  value: "%w[reading writing changing]"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ALL_ALLOWED_OPTIONS
+  value: ATTRIBUTE_OPTIONS +           CANONICAL_OPTIONS.keys.inject([]) {|ary,i| ary << i << CANONICAL_OPTIONS[i]}.flatten
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ALL_ALLOWED_OPTION_SYMBOLS
+  value: ALL_ALLOWED_OPTIONS.map {|o| o.intern}
+full_name: Aquarium::Aspects::Pointcut
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::ArrayUtils
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::HashUtils
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::OptionsUtils
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::SetUtils
+- !ruby/object:RI::IncludedModule 
+  name: ExclusionHandler
+- !ruby/object:RI::IncludedModule 
+  name: DefaultObjectsHandler
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "&"
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: all_allowed_option_symbols
+- !ruby/object:RI::MethodSummary 
+  name: all_methods_specified
+- !ruby/object:RI::MethodSummary 
+  name: and
+- !ruby/object:RI::MethodSummary 
+  name: empty?
+- !ruby/object:RI::MethodSummary 
+  name: eql?
+- !ruby/object:RI::MethodSummary 
+  name: init_methods_specification
+- !ruby/object:RI::MethodSummary 
+  name: init_type_specific_specification
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: intersection
+- !ruby/object:RI::MethodSummary 
+  name: match_all_methods
+- !ruby/object:RI::MethodSummary 
+  name: no_attributes_specified
+- !ruby/object:RI::MethodSummary 
+  name: no_methods_specified
+- !ruby/object:RI::MethodSummary 
+  name: or
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: union
+- !ruby/object:RI::MethodSummary 
+  name: "|"
+name: Pointcut
+superclass: Object

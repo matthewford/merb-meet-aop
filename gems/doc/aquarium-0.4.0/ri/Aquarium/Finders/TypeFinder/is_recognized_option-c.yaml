@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::TypeFinder::is_recognized_option
+is_singleton: true
+name: is_recognized_option
+params: (option_or_symbol)
+visibility: protected

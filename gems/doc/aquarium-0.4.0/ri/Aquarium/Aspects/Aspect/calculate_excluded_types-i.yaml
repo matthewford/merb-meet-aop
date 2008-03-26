@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#calculate_excluded_types
+is_singleton: false
+name: calculate_excluded_types
+params: ()
+visibility: protected

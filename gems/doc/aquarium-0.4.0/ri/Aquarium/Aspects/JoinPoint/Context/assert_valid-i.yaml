@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::JoinPoint::Context#assert_valid
+is_singleton: false
+name: assert_valid
+params: (options)
+visibility: protected

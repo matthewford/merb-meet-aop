@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Advice::sort_by_priority_order
+is_singleton: true
+name: sort_by_priority_order
+params: (advice_kinds)
+visibility: public

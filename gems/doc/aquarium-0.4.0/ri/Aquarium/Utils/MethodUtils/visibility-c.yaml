@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Utils::MethodUtils::visibility
+is_singleton: true
+name: visibility
+params: (type_or_instance, method_sym, class_or_instance_only = nil, include_ancestors = true)
+visibility: public

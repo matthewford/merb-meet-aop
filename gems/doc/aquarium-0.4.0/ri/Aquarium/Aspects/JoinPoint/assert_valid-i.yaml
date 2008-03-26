@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Since JoinPoints can be declared for non-existent methods, tolerate &quot;nil&quot; for the visibility.
+full_name: Aquarium::Aspects::JoinPoint#assert_valid
+is_singleton: false
+name: assert_valid
+params: (options, error_message = "")
+visibility: protected

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Aquarium::Extensions::HashHelper</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Aquarium::Extensions::HashHelper</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/aquarium/extensions/hash_rb.html">
+                lib/aquarium/extensions/hash.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000067">&amp;</a>&nbsp;&nbsp;
+      <a href="#M000072">-</a>&nbsp;&nbsp;
+      <a href="#M000065">and</a>&nbsp;&nbsp;
+      <a href="#M000073">eql_when_keys_compared?</a>&nbsp;&nbsp;
+      <a href="#M000074">equivalent_key</a>&nbsp;&nbsp;
+      <a href="#M000066">intersection</a>&nbsp;&nbsp;
+      <a href="#M000071">minus</a>&nbsp;&nbsp;
+      <a href="#M000068">or</a>&nbsp;&nbsp;
+      <a href="#M000069">union</a>&nbsp;&nbsp;
+      <a href="#M000070">|</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000067" class="method-detail">
+        <a name="M000067"></a>
+
+        <div class="method-heading">
+          <span class="method-name">&amp;</span><span class="method-args">(other_hash)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="HashHelper.html#M000065">and</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000072" class="method-detail">
+        <a name="M000072"></a>
+
+        <div class="method-heading">
+          <span class="method-name">-</span><span class="method-args">(other_hash)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="HashHelper.html#M000071">minus</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000065" class="method-detail">
+        <a name="M000065"></a>
+
+        <div class="method-heading">
+          <a href="#M000065" class="method-signature">
+          <span class="method-name">and</span><span class="method-args">(other_hash) {|value1, value2| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000065-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000065-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/aquarium/extensions/hash.rb, line 7</span>
+ 7:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">other_hash</span>
+ 8:         <span class="ruby-keyword kw">return</span> {} <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">empty?</span>
+ 9:         <span class="ruby-identifier">keys2</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">keys</span>).<span class="ruby-identifier">intersection</span>(<span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">keys</span>))
+10:         <span class="ruby-identifier">result</span> = {}
+11:         <span class="ruby-identifier">keys2</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+12:           <span class="ruby-identifier">value1</span> = <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">key</span>]
+13:           <span class="ruby-identifier">value2</span> = <span class="ruby-identifier">other_hash</span>[<span class="ruby-identifier">key</span>]
+14:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+15:             <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">value1</span>, <span class="ruby-identifier">value2</span>
+16:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">value1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value2</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">value2</span>)
+17:             <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value1</span>
+18:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value2</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:&amp;</span>)
+19:             <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = (<span class="ruby-identifier">value1</span> <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">value2</span>)
+20:           <span class="ruby-keyword kw">end</span>
+21:         <span class="ruby-keyword kw">end</span>
+22:         <span class="ruby-identifier">result</span>
+23:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000073" class="method-detail">
+        <a name="M000073"></a>
+
+        <div class="method-heading">
+          <a href="#M000073" class="method-signature">
+          <span class="method-name">eql_when_keys_compared?</span><span class="method-args">(other)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+It appears that <a href="../../Hash.html">Hash</a>#== uses <a
+href="../../Object.html">Object</a>#== (i.e., self.object_id ==
+other.object_id) when comparing hash keys. (Array#== uses the overridden
+#== for the elements.)
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000073-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000073-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/aquarium/extensions/hash.rb, line 89</span>
+ 89:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eql_when_keys_compared?</span> <span class="ruby-identifier">other</span>
+ 90:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span>  <span class="ruby-keyword kw">if</span>     <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">object_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">object_id</span>
+ 91:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>     <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">class</span>
+ 92:         <span class="ruby-identifier">keys1</span> = <span class="ruby-identifier">sort_keys</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">keys</span>)
+ 93:         <span class="ruby-identifier">keys2</span> = <span class="ruby-identifier">sort_keys</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">keys</span>)
+ 94:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">keys1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">keys2</span>)
+ 95:         (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">keys1</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+ 96:           <span class="ruby-comment cmt"># Handle odd cases where eql? and == behavior differently</span>
+ 97:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">keys1</span>[<span class="ruby-identifier">index</span>]].<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">other</span>[<span class="ruby-identifier">keys2</span>[<span class="ruby-identifier">index</span>]]) <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">keys1</span>[<span class="ruby-identifier">index</span>]] <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>[<span class="ruby-identifier">keys2</span>[<span class="ruby-identifier">index</span>]]
+ 98:         <span class="ruby-keyword kw">end</span>
+ 99:         <span class="ruby-keyword kw">true</span>
+100:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000074" class="method-detail">
+        <a name="M000074"></a>
+
+        <div class="method-heading">
+          <a href="#M000074" class="method-signature">
+          <span class="method-name">equivalent_key</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000074-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000074-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/aquarium/extensions/hash.rb, line 102</span>
+102:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">equivalent_key</span> <span class="ruby-identifier">key</span>
+103:         <span class="ruby-identifier">i</span> = <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">key</span>)
+104:         <span class="ruby-identifier">i</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span><span class="ruby-keyword kw">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">keys</span>[<span class="ruby-identifier">i</span>] 
+105:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000066" class="method-detail">
+        <a name="M000066"></a>
+
+        <div class="method-heading">
+          <span class="method-name">intersection</span><span class="method-args">(other_hash)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="HashHelper.html#M000065">and</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000071" class="method-detail">
+        <a name="M000071"></a>
+
+        <div class="method-heading">
+          <a href="#M000071" class="method-signature">
+          <span class="method-name">minus</span><span class="method-args">(other_hash) {|value1, value2| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000071-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000071-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/aquarium/extensions/hash.rb, line 59</span>
+59:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">minus</span> <span class="ruby-identifier">other_hash</span>
+60:         <span class="ruby-identifier">result</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">dup</span>
+61:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">empty?</span>
+62:         <span class="ruby-identifier">result</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> 
+63:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+64:             <span class="ruby-identifier">value1</span> = <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">key</span>]
+65:             <span class="ruby-identifier">value2</span> = <span class="ruby-identifier">other_hash</span>[<span class="ruby-identifier">key</span>]
+66:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+67:               <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">value1</span>, <span class="ruby-identifier">value2</span>
+68:             <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">value2</span>.<span class="ruby-identifier">nil?</span>
+69:               <span class="ruby-comment cmt"># do nothing</span>
+70:             <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">value1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value2</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">value2</span>)
+71:               <span class="ruby-identifier">result</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span>
+72:             <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value2</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:-</span>)
+73:               <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = (<span class="ruby-identifier">value1</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">value2</span>)
+74:             <span class="ruby-keyword kw">else</span>  <span class="ruby-comment cmt"># Hash#merge behavior</span>
+75:               <span class="ruby-identifier">result</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span>
+76:             <span class="ruby-keyword kw">end</span>
+77:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">block_given?</span>
+78:             <span class="ruby-comment cmt"># Since the block might change the value's type (e.g., [] =&gt; Set...)</span>
+79:             <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>], <span class="ruby-keyword kw">nil</span>
+80:           <span class="ruby-keyword kw">end</span>
+81:         <span class="ruby-keyword kw">end</span>
+82:         <span class="ruby-identifier">result</span>
+83:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000068" class="method-detail">
+        <a name="M000068"></a>
+
+        <div class="method-heading">
+          <a href="#M000068" class="method-signature">
+          <span class="method-name">or</span><span class="method-args">(other_hash) {|value1, value2| ...}</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Union of self with a second hash, which returns a new hash. It&#8216;s
+different from Hash#merge in that it attempts to merge non-equivalent
+values for the same key, using a block, if given, <a
+href="HashHelper.html#M000068">or</a> if they are of the same type <a
+href="HashHelper.html#M000065">and</a> respond to #|, using #| to merge the
+two values. Otherwise, it behaves like Hash#merge.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000068-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000068-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/aquarium/extensions/hash.rb, line 32</span>
+32:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">other_hash</span>
+33:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">self</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">nil?</span>
+34:         <span class="ruby-identifier">result</span> = {}
+35:         <span class="ruby-identifier">new_keys</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">keys</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">keys</span>
+36:         <span class="ruby-identifier">new_keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+37:           <span class="ruby-identifier">value1</span> = <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">key</span>]
+38:           <span class="ruby-identifier">value2</span> = <span class="ruby-identifier">other_hash</span>[<span class="ruby-identifier">key</span>]
+39:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+40:             <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">value1</span>, <span class="ruby-identifier">value2</span>
+41:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">value2</span>.<span class="ruby-identifier">nil?</span>
+42:             <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value2</span>
+43:           <span class="ruby-keyword kw">elsif</span> (<span class="ruby-keyword kw">not</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">nil?</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">value2</span>.<span class="ruby-identifier">nil?</span>
+44:             <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value1</span>
+45:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">value1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value2</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">value2</span>)
+46:             <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value1</span> 
+47:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value2</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value1</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:|</span>)
+48:             <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = (<span class="ruby-identifier">value1</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">value2</span>)
+49:           <span class="ruby-keyword kw">else</span>  <span class="ruby-comment cmt"># Hash#merge behavior</span>
+50:             <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value2</span>
+51:           <span class="ruby-keyword kw">end</span>
+52:         <span class="ruby-keyword kw">end</span>
+53:         <span class="ruby-identifier">result</span>
+54:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000069" class="method-detail">
+        <a name="M000069"></a>
+
+        <div class="method-heading">
+          <span class="method-name">union</span><span class="method-args">(other_hash)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="HashHelper.html#M000068">or</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000070" class="method-detail">
+        <a name="M000070"></a>
+
+        <div class="method-heading">
+          <span class="method-name">|</span><span class="method-args">(other_hash)</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="HashHelper.html#M000068">or</a>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

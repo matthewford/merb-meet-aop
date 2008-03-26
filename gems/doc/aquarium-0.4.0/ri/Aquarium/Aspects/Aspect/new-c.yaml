@@ -1,0 +1,60 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Aspect.new (:around | :before | :after | :after_returning | :after_raising ) # (:pointcuts =&gt; [...]), | # ((:types =&gt; [...] | :types_and_ancestors =&gt; [...] | :types_and_descendents =&gt; [...] # :objects =&gt; [...]),"
+- !ruby/struct:SM::Flow::VERB 
+  body: "    :methods =&gt; [], :method_options =&gt; [...],        #     :attributes =&gt; [...], :attribute_options[...]),        #    (:advice = advice | do |join_point, obj, *args| ...; end)\n"
+- !ruby/struct:SM::Flow::P 
+  body: "where the parameters often have many synonyms (mostly to support a &quot;humane interface&quot;) and they are interpreted as followed:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:around</tt>:"
+    body: Invoke the specified advice &quot;around&quot; the join points. It is up to the advice itself to call <tt>join_point.proceed</tt> (where <tt>join_point</tt> is the first option passed to the advice) if it wants the advised method to actually execute.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:before</tt>:"
+    body: Invoke the specified advice before the join point.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:after</tt>:"
+    body: Invoke the specified advice after the join point either returns successfully or raises an exception.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:after_returning</tt>:"
+    body: Invoke the specified advice after the join point returns successfully.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:after_raising [=> exception || [exception_list]]</tt>:"
+    body: Invoke the specified advice after the join point raises one of the specified exceptions. If no exceptions are specified, the advice is invoked after any exception is raised.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:advice =&gt; proc</tt>:: <tt>:action =&gt; proc</tt>:: <tt>:do_action =&gt; proc</tt>:: <tt>:use_advice =&gt; proc</tt>:: <tt>:advise_with =&gt; proc</tt>:: <tt>:invoke =&gt; proc</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:call => proc</tt>:"
+    body: The specified advice to be invoked. Only one advice may be specified. If a block is specified, it is used instead.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:pointcuts =&gt; pointcut || [pointcut_list]</tt>:: <tt>:pointcut =&gt; pointcut || [pointcut_list]</tt>:: <tt>:within_pointcut =&gt; pointcut || [pointcut_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:within_pointcuts => pointcut || [pointcut_list]</tt>:"
+    body: One or an array of Pointcut or JoinPoint objects. Mutually-exclusive with the :types, :objects, :methods, :attributes, :method_options, and :attribute_options parameters.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: <tt>:ignore_no_matching_join_points =&gt; true | false</tt>
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>ignore_no_jps => true | false</tt>:"
+    body: Do not issue a warning if no join points are actually matched by the aspect. By default, the value is false, meaning that a WARN-level message will be written to the log. It is usually very helpful to be warned when no matches occurred, for diagnostic purposes!
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: Aspect.new also accepts all the same options that Pointcut accepts, including the synonyms for :types, :methods, etc. It also accepts the &quot;universal&quot; options documented in OptionsUtils.
+full_name: Aquarium::Aspects::Aspect::new
+is_singleton: true
+name: new
+params: (*options, &block)
+visibility: public

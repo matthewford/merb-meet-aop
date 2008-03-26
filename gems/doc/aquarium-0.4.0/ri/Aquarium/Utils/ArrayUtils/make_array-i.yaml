@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Return an array containing the input item or list of items. If the input is an array, it is returned. In all cases, the constructed array is a flattened version of the input and any nil elements are removed by #strip_nils. Note that this behavior effectively converts <tt>nil</tt> to +[]+."
+full_name: Aquarium::Utils::ArrayUtils#make_array
+is_singleton: false
+name: make_array
+params: (*value_or_enum)
+visibility: public

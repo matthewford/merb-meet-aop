@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Mar 23 11:37:45 +0000 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2><a href="../classes/Aquarium.html">Aquarium</a></h2>
+<p>
+<a href="../classes/Aquarium.html">Aquarium</a> is a toolkit for
+Aspect-Oriented Programming (AOP) whose goals include:
+</p>
+<ul>
+<li>A powerful &quot;pointcut&quot; language for specifying where to apply
+aspects, comparable to the pointcut language in AspectJ for Java.
+
+</li>
+<li>Management of concurrent aspects (i.e., those acting on the same &quot;join
+points&quot;).
+
+</li>
+<li>Adding and removing aspects dynamically.
+
+</li>
+<li>A user-friendly DSL.
+
+</li>
+<li>Support for advising Java types through JRuby.
+
+</li>
+</ul>
+<h3>Why Is an AOP Framework Useful in Ruby?</h3>
+<p>
+Ruby&#8216;s metaprogramming facilities already provide some of the
+capabilities for which static-language AOP toolkits like AspectJ are
+typically used. With Ruby, you can easily add new methods and attributes to
+existing classes and objects. You can alias and redefine existing methods,
+which provides the method interception and &quot;wrapping&quot; needed to
+extend or modify existing behavior.
+</p>
+<p>
+However, what is missing in Ruby is an expressive language for describing
+systemic modifications, a so-called &quot;pointcut language&quot;. If you
+have simple needs for method interception and wrapping, then <a
+href="../classes/Aquarium.html">Aquarium</a> will be overkill. However, if
+you have system-wide concerns that cross the boundaries of many objects,
+then an AOP tookit like <a href="../classes/Aquarium.html">Aquarium</a> can
+help you implement these concerns in a more modular way.
+</p>
+<p>
+So, if you are designing with aspects, wouldn&#8216;t you like to write
+your code using the same &quot;language&quot;? Without AOP support, you
+have to map your aspect designs to metaprogramming idioms, which will often
+be slower to implement and harder to maintain. Imagine writing objects
+without native support for OOP!
+</p>
+<h3>Terminology</h3>
+<p>
+Several terms are used in the AOP community.
+</p>
+<ul>
+<li>Join Point - A point of execution in a program where &quot;advice&quot;
+might be invoked.
+
+</li>
+<li>Pointcut - (yes, one word&#8230;) A set of join points of particular
+interest, like a query over all join points in the system.
+
+</li>
+<li>Advice - The behavior invoked at a join point. There are several kinds of
+advice:
+
+<ul>
+<li>Before advice - Advice invoked before the actual join point is invoked.
+
+</li>
+<li>After returning advice - Advice invoked after the join point executes
+successfully.
+
+</li>
+<li>After raising advice - Advice invoked only after the join point raises an
+exception.
+
+</li>
+<li>After advice - Advice invoked after the join point executes successfully or
+raises an exception.
+
+</li>
+<li>Around advice - Advice invoked instead of the join point. The around advice
+must choose whether or not to invoke the join point by calling a special
+&quot;proceed&quot; method. Otherwise, the join point is NOT executed.
+
+</li>
+</ul>
+</li>
+</ul>
+<p>
+Only around advice can prevent execution of the join point, except for the
+special case where before advice raises an exception.
+</p>
+<h3>Known Limitations</h3>
+<ul>
+<li>You cannot advice &quot;<a href="../classes/String.html">String</a>&quot;,
+&quot;<a href="../classes/Symbol.html">Symbol</a>&quot; or instances there
+of, because trying to specify either one will be confused with naming a
+type.
+
+</li>
+<li>Concurrent advice on type AND advice on objects of the type can&#8216;t be
+removed cleanly.
+
+</li>
+<li>The pointcut language is still limited, compared to AspectJ&#8216;s. See
+also the comparison with AspectJ behavior next.
+
+</li>
+<li>The API and wrapper DSL will probably evolve until the 1.0.0 release.
+Backwards compatibility will be maintained between releases as much as
+possible. When it is necessary to break backwards compatibility,
+translation tools will be provided, if possible.
+
+</li>
+<li>There are limitations when advising Java types through JRuby. The separate
+RSpec suite in the &quot;jruby&quot; directory documentations the details
+on how to use <a href="../classes/Aquarium.html">Aquarium</a> with
+JRuby-wrapped Java types and the limitations thereof. Here we summarize
+what works and what doesn&#8216;t:
+
+<ul>
+<li><a href="../classes/Aquarium.html">Aquarium</a> advice on a method in a
+Java type will only be invoked when the method is called directly from
+Ruby.
+
+</li>
+<li>To have the advice invoked when the method is called from either Java or
+Ruby, it is necessary to create a subclass of the Java type in Ruby and an
+override of the method, which can just call &quot;super&quot;. Note that it
+will be necessary for instances of this Ruby type to be used throughout,
+not instances of a Java parent type.
+
+</li>
+<li>BUG 18325: If you have Ruby subclasses of Java types <b>and</b> you advise
+a Java method in the hierarchy using @:types_and_descendents =&gt;
+MyJavaBaseClassOrInterface@ <b>and</b> you call unadvise on the aspect, the
+advice &quot;infrastructure&quot; is not correctly removed from the Ruby
+types. Workaround: Only advise methods in Ruby subclasses of Java types
+where the method is explicitly overridden in the Ruby class. (The spec and
+the &quot;Rubyforge bug report&quot;:<a
+href="http://rubyforge.org/tracker/index.php?func=detail&aid=18325&group_id=4281&atid=16494">rubyforge.org/tracker/index.php?func=detail&aid=18325&group_id=4281&atid=16494</a>
+provide examples.)
+
+</li>
+<li>BUG 18326: Normally, you can use either Java- or Ruby-style method names
+(e.g., &quot;doSomething&quot; vs. &quot;do_something&quot;), for Java
+types. However, if you write an aspect using the Java-style for a method
+name and a Ruby subclass of the Java type where the method is actually
+defined (i.e., the Ruby class doesn&#8216;t override the method), it
+appears that the JoinPoint was advised, but the advice is never called.
+Workaround: Use the Ruby-style name in this scenario.
+
+</li>
+</ul>
+</li>
+</ul>
+<h3>Differences With Other Ruby AOP Toolkits</h3>
+<p>
+There are several other AOP toolkits for Ruby that precede <a
+href="../classes/Aquarium.html">Aquarium</a>. The most notable are AspectR
+and the aspect capabilities in the Facets toolkit. There are also Ruby 2.0
+proposals to add method wrappers for &quot;before&quot;, &quot;after&quot;
+and &quot;wrap&quot; behavior.
+</p>
+<p>
+The goal of <a href="../classes/Aquarium.html">Aquarium</a> is to provide a
+superset of the functionality provided by these other toolkits. <a
+href="../classes/Aquarium.html">Aquarium</a> is suitable for non-trivial
+and large-scale aspect-oriented components in systems. <a
+href="../classes/Aquarium.html">Aquarium</a> will be most valuable for
+systems where aspects might be added and removed dynamically at runtime and
+systems where nontrivial pointcut descriptions are needed, requiring a
+full-featured pointcut language (as discussed above&#8230;). For less
+demanding needs, the alternatives are lighter weight and hence may be more
+appropriate.
+</p>
+<h3>Differences With AspectJ Behavior</h3>
+<p>
+Many of AspectJ&#8216;s features are not currently supported by <a
+href="../classes/Aquarium.html">Aquarium</a>, but some of them are planned
+for future releases.
+</p>
+<ul>
+<li>Attribute reading and writing join points are not supported. The
+:attributes and :attributes_options parameters (and their synonyms) for
+Aspect.new are actually &quot;syntactic sugar&quot; for the corresponding
+accessor methods.
+
+</li>
+<li>More advanced AspectJ pointcut language features are not supported, such as
+the runtime pointcut designators like &quot;if&quot; conditionals and
+&quot;cflow&quot; (context flow) and the compile time &quot;within&quot;
+and &quot;withincode&quot; designators. Most of AspectJ pointcut language
+features are planned, however.
+
+</li>
+<li>While AspectJ provides &quot;intertype declaration&quot; capabilities
+(i.e., adding state and behavior to existing classes), Ruby&#8216;s native
+metaprogramming support satisfies this need. There may be convenience hooks
+added in a future release, however.
+
+</li>
+<li>User defined advice precedence is not supported. However, advice precedence
+is unambiguous; the last aspects created while modules are loaded at
+runtime have higher precedence than earlier aspects. Ensuring a particular
+order is not always easy, of course.
+
+</li>
+</ul>
+<p>
+However, <a href="../classes/Aquarium.html">Aquarium</a> does have a few
+advantages over AspectJ, especially when advising Java types when running
+in JRuby.
+</p>
+<ul>
+<li><a href="../classes/Aquarium.html">Aquarium</a> can add and remove advice
+dynamically, at runtime.
+
+</li>
+<li><a href="../classes/Aquarium.html">Aquarium</a> can advise individual
+objects, not just classes.
+
+</li>
+<li><a href="../classes/Aquarium.html">Aquarium</a> can advise JDK classes.
+AspectJ can also do this, but not by default.
+
+</li>
+<li><a href="../classes/Aquarium.html">Aquarium</a> supports named advice that
+can be defined separately from the aspects that use the advice.
+
+</li>
+<li><a href="../classes/Aquarium.html">Aquarium</a> can advise ancestor
+(parent) types, not just derived (descendent) types of specified types.
+
+</li>
+</ul>
+<p>
+Note: at the time of this writing (V0.4.0 release), there is an important
+limitation of <a href="../classes/Aquarium.html">Aquarium</a> when used
+with java code; it appears that advice is only invoked if an advised method
+is called directly from Ruby code. If the advised method is called by other
+Java code, the advice is <b>not</b> invoked. Whether or not this limitation
+can be removed is under investigation.
+</p>
+<p>
+Also, as of V0.4.0, the interaction behavior of <a
+href="../classes/Aquarium.html">Aquarium</a> and AspectJ or Spring aspects
+has not been investigated.
+</p>
+<h3>Examples</h3>
+<p>
+Several complete examples are provided in the &quot;examples&quot;
+directory.
+</p>
+<p>
+In most cases, you can either declare the appropriate classes or use the
+optional DSL, which adds convenience methods to classes, objects, or even
+<a href="../classes/Object.html">Object</a> itself. The API also supports
+many synonyms for things like types, objects, and methods. The best place
+to see the full list of synonyms is the output of
+&quot;pointcut_spec.rb&quot;.
+</p>
+<p>
+Here is an example that traces invocations of all public instance methods
+(included inherited ones) of the classes or modules Foo and Bar.
+</p>
+<pre>
+        require 'aquarium'
+        Aspect.new :around, :calls_to =&gt; :all_methods, :on_types =&gt; [Foo, Bar] do |join_point, object, *args|
+                p &quot;Entering: #{join_point.target_type.name}##{join_point.method_name} for object #{object}&quot;
+                result = join_point.proceed
+                p &quot;Leaving: #{join_point.target_type.name}##{join_point.method_name} for object #{object}&quot;
+                result  # block needs to return the result of the &quot;proceed&quot;!
+        end
+</pre>
+<p>
+The advice to execute at each join point is the block. The pointcut is the
+set of all public instance methods in Foo and Bar. (There are additional
+options available for specifying class methods, protected methods,
+excluding inherited (ancestor) methods, etc.) Here is the same example
+using the convenience DSL that adds aspect methods to <a
+href="../classes/Object.html">Object</a> (available only if you require
+aquarium/aspects/dsl/object_dsl&#8217;, since other toolkits, like Rails,
+define similar methods on <a href="../classes/Object.html">Object</a>!).
+</p>
+<pre>
+        require 'aquarium/aspects/dsl/object_dsl'
+        around :calls_to =&gt; :all_methods, :on_types =&gt; [Foo, Bar] do |join_point, object, *args|
+                p &quot;Entering: #{join_point.target_type.name}##{join_point.method_name} for object #{object}&quot;
+                result = join_point.proceed
+                p &quot;Leaving: #{join_point.target_type.name}##{join_point.method_name} for object #{object}&quot;
+                result  # block needs to return the result of the &quot;proceed&quot;!
+        end
+</pre>
+<p>
+See &quot;examples/method_tracing_example.rb&quot; for a more detailed
+version of this example.
+</p>
+<p>
+If you don&#8216;t want to add these methods to <a
+href="../classes/Object.html">Object</a>, you can also add them
+individually to modules, classes, or objects:
+</p>
+<pre>
+        require 'aquarium/aspects/dsl/aspect_dsl'  # NOT object_dsl
+        ...
+        module MyModule
+                include Aquarium::Aspects::DSL::AspectDSL
+        end
+
+        class MyClass
+                include Aquarium::Aspects::DSL::AspectDSL
+        end
+
+        my_object = MyOtherClass.new
+        my_object.extend (Aquarium::Aspects::DSL::AspectDSL)
+</pre>
+<p>
+If you use the DSL inside a class and omit the :type(s) and :object(s)
+options, &quot;self&quot; is assumed.
+</p>
+<pre>
+        class Foo
+                include Aquarium::Aspects::DSL::AspectDSL
+                ...
+                def critical_operation *args
+                        ...
+                end
+        end
+        ...
+        class Foo
+                around :critical_operation do |join_point, object, *args|
+                        p &quot;Entering: Foo#critical_operation&quot;
+                        result = join_point.proceed
+                        p &quot;Leaving: Foo#critical_operation&quot;
+                        result
+                end
+        end
+</pre>
+<p>
+It is important to note that aspect &quot;instances&quot; usually behave
+like class (static) variables, in terms of the lifetime of their effects.
+In the example shown, class Foo is permanently modified to do the print
+statements shown for all &quot;critical methods&quot;, unless you save the
+result of calling &quot;around&quot; to a variable, e.g.,
+critical_operation_logging, and you explicitly call
+&quot;critical_operation_logging.unadvise&quot; at some future time. Put
+another way, the effects scope just like changes made when you reopen a
+class or module.
+</p>
+<p>
+A common mistake is to create an aspect in an initialize method and assign
+it to an attribute. This usually means that you are creating long-lived,
+redundant aspects every time an instance of your class is created. The
+aspect modifications remain in effect even when the instances themselves
+are garbage collected!
+</p>
+<p>
+Here are some more succinct examples, illustrating the API (using the DSL
+methods) and some of the various synonyms for methods, types, etc.
+</p>
+<p>
+You can pass in pointcuts defined elsewhere:
+</p>
+<pre>
+        my_pointcut = Pointcut.new :invocations_of =&gt; /^do_/, :within_types =&gt; /Foo::Bar::/
+        around :pointcuts =&gt; my_pointcut do |jp, obj, *args| ...         # Pass in a pointcut
+        around :pointcuts =&gt; [my_pointcut, ...] do |jp, obj, *args| ...  # Pass in a pointcut array
+</pre>
+<p>
+As a convenience, since a JoinPoint is like a Pointcut with one element,
+you can pass a JoinPoint object where Pointcut objects are expected:
+</p>
+<p>
+my_join_point1 = JoinPoint.new :type =&gt; Foo::Bar, :method =&gt; do_this
+my_join_point2 = JoinPoint.new :type =&gt; Foo::Bar, :method =&gt; do_that
+around :pointcuts =&gt; my_join_point1 do |jp, obj, *args| &#8230; around
+:pointcuts =&gt; [my_join_point1, my_join_point2, &#8230;] do |jp, obj,
+*args| &#8230;
+</p>
+<p>
+You can specify a single type, a type name, a type regular expression, or
+an array of the same. Note that :type and :types are synonymous. Use the
+singular form for better readability when you are specifying just one type.
+Other synonyms include :on_types, :within_types, and :in_types, plus the
+singular forms.
+</p>
+<pre>
+        around :type = A, ...
+        around :type = &quot;A&quot;, ...
+        around :types =&gt; [A, B, ...], ...
+        around :types =&gt; %w[A, B, ...], ...
+        around :types =&gt; /A::.*Helper$/, ...
+        around :types =&gt; [/A::.*Helper$/, /B::Foo.*/], ...
+</pre>
+<p>
+Everywhere &quot;type&quot; is used, you can substitute &quot;class&quot;,
+&quot;classes&quot;, &quot;module&quot;, or &quot;modules&quot;. Note that
+they are treated as synonyms; there is currently no enforcement that the
+values passed with &quot;:class&quot;, for example, are actually classes,
+not modules.
+</p>
+<p>
+Using the plural versions of the synonyms with method specifications
+sometimes read better:
+</p>
+<pre>
+        around :calls_to =&gt; :all_methods, :on_types =&gt; [A, B, ...], ...
+        around :calls_to =&gt; :all_methods, :in_types =&gt; [A, B, ...], ...
+        around :calls_to =&gt; :all_methods, :within_types =&gt; [A, B, ...], ...
+</pre>
+<p>
+You can specify types and their descendents (subclasses or included
+modules) or ancestors. The same synonym prefixes for :types and :type also
+apply.
+</p>
+<pre>
+        around :type_and_ancestors = A, ...
+        around :types_and_ancestors = A, ...
+        around :type_and_descendents = A, ...
+        around :types_and_descendents = A, ...
+        around :classes_and_descendents = A, ...
+        around :modules_and_descendents = A, ...
+</pre>
+<p>
+Some of the synonyms:
+</p>
+<pre>
+        around :calls_to =&gt; :all_methods, :on_types_and_ancestors = A, ...
+        around :calls_to =&gt; :all_methods, :in_types_and_ancestors = A, ...
+        around :calls_to =&gt; :all_methods, :within_types_and_ancestors = A, ...
+        and similarly for descendents
+</pre>
+<p>
+You can specify a single object or an array of objects. As for :types, you
+can use :object, :objects, :on_objects, :within_object, :in_objects, and
+the singular forms synonymously.
+</p>
+<pre>
+        a1 = A.new
+        a2 = A.new
+        around :object = a1, ...
+        around :objects =&gt; [a1, a2], ...
+</pre>
+<p>
+Some of the synonyms:
+</p>
+<pre>
+        around :calls_to =&gt; :all_methods, :on_objects = [a1, a2], ...
+        around :calls_to =&gt; :all_methods, :in_objects = [a1, a2], ...
+        around :calls_to =&gt; :all_methods, :within_objects = [a1, a2], ...
+</pre>
+<p>
+If no types or objects are specified, the object defaults to
+&quot;self&quot;. However, this default is only supported when using the
+DSL to create an aspect, e.g.,
+</p>
+<pre>
+        class MyClass
+                include Aquarium::Aspects::DSL::AspectDSL
+                def doit; ...; end
+
+                around :method =&gt; doit, ...   # Implicit :object =&gt; self, i.e., MyClass
+        end
+</pre>
+<p>
+You can specify a single method symbol (name), a regular expression, or an
+array of the same. The synonyms for :methods include :method, :calls_to,
+:invoking, :invocations_of, and :sending_messages_to. The special keywords
+:all and :all_methods mean match all methods, subject to the
+:method_options discussed next.
+</p>
+<pre>
+        around :method = :all_methods, ...
+        around :method = :foo, ...
+        around :methods = [:foo, :bar, :baz], ...
+        around :methods = /^foo/, ...
+        around :methods = [/^foo/, /bar$/], ...
+</pre>
+<p>
+Using the synonyms:
+</p>
+<pre>
+        around :calls_to = :all_methods, ...
+        after  :invoking = :all_methods, ...
+        after  :invocations_of = :all_methods, ...
+        after  :sending_messages_to = :all_methods, ...
+        after  :within_methods = :all_methods, ...
+</pre>
+<p>
+You can specify method options. By default, public instance methods only
+are matched. Note that :methods =&gt; :all or :all_methods with no method
+options matches all public instance methods, including ancestor (inherited
+and included module) methods. For all the method options (except for
+:exclude_ancestor_methods), you can append the suffix &quot;_methods&quot;.
+You can also use the :restrict_methods_to synonym for :method_options.
+</p>
+<pre>
+        around :methods = /foo/, :method_options =&gt; [:instance], ...  # match instance methods (default)
+        around :methods = /foo/, :method_options =&gt; [:class], ...     # match class methods
+        around :methods = /foo/, :method_options =&gt; [:public, :protected, :private], ...
+                # match public, protected, and private instance methods
+        around :methods = /foo/, :method_options =&gt; [:singleton], ... # match singleton methods
+        around :methods = /foo/, :method_options =&gt; [:exclude_ancestor_methods], ...
+                # ignore methods defined in ancestors, inherited classes and included modules
+</pre>
+<p>
+With synonyms:
+</p>
+<pre>
+        around :calls_to = /foo/, :restricting_methods_to =&gt; [:singleton_methods], ...
+</pre>
+<p>
+You can specify attributes, which are actually convenience methods for the
+attribute accessors. They work very much like the :method options. Note
+that :all is NOT supported in this case. The available synonyms are
+slightly more complicated, as shown in these examples.
+</p>
+<pre>
+        around :attribute  = :foo, ...                                 # defaults to methods #foo and #foo=
+        around :attributes = :foo, ...                                 # the same
+        around :accessing  = :foo, ...                                 # the same
+
+        around :attribute = :foo, :attribute_options =&gt; [:readers]...  # only matches #foo
+        around :reading   = :foo                                       # the same
+
+        around :attribute = :foo, :attribute_options =&gt; [:writers]...  # only matches #foo=
+        around :writing   = :foo                                       # the same
+
+        around :attributes = [:foo, :bar, :baz], ...
+        around :attributes = /^foo/, ...
+        around :attributes = [/^foo/, /bar$/], ...
+</pre>
+<p>
+You can specify a &quot;Pointcut&quot; that encapsulates one or more
+pre-defined Pointcuts or JoinPoints.
+</p>
+<pre>
+        around :pointcut = pc, ...                                     # for pre-defined pointcut &quot;pc&quot;
+        around :pointcuts = [pc, ...], ...                             # for pre-defined pointcut list
+        around :pointcut = jp, ...                                     # for pre-defined join point &quot;jp&quot;
+        around :pointcuts = [jp, ...], ...                             # for pre-defined join point list
+        around :pointcut = {:type =&gt; T, :method =&gt; :m}, ...            # same as around :type =&gt; T, :method =&gt; :m, ..
+</pre>
+<p>
+Using the plural versions of the synonyms, with method specifications so
+they read better:
+</p>
+<pre>
+        around :on_pointcuts =&gt; [pc1, pc2, ...], ...
+        around :in_pointcuts =&gt; [pc1, pc2, ...], ...
+        around :within_pointcuts =&gt; [pc1, pc2, ...], ...
+</pre>
+<p>
+You can specifically exclude particular pointcuts, join points, types,
+objects, methods, or attributes. This is useful when you specify a list or
+regular expression of &quot;items&quot; to match and you want to exclude
+some of the items. Note that there is an open bug (15202) that appears to
+affect advising types, unadvising the types, then advising objects of the
+same types. (This is not likely to happen a lot in real applications, but
+it shows up when running <a
+href="../classes/Aquarium.html">Aquarium</a>&#8216;s specs.)
+</p>
+<pre>
+        around ..., :exclude_pointcut = pc, ...
+        around ..., :exclude_pointcuts = [pc, ...]
+        around ..., :exclude_join_point = jp, ...
+        around ..., :exclude_join_points = [jp, ...]
+        around ..., :exclude_type = t, ...
+        around ..., :exclude_types = [t, ...]
+        around ..., :exclude_type_and_ancestors = t, ...
+        around ..., :exclude_types_and_ancestors = [t, ...]
+        around ..., :exclude_type_and_descendents = t, ...
+        around ..., :exclude_types_and_descendents = [t, ...]
+        around ..., :exclude_object = o, ...
+        around ..., :exclude_objects = [o, ...]
+        around ..., :exclude_method = m, ...
+        around ..., :exclude_methods = [m, ...]
+        around ..., :exclude_attribute = a, ...
+        around ..., :exclude_attributes = [a, ...]
+</pre>
+<p>
+All the same synonyms for :types, :objects, and :methods apply here as well
+(after the &quot;exclude_&quot; prefix).
+</p>
+<p>
+You can advice methods before execution:
+</p>
+<pre>
+        before :types =&gt; ...
+</pre>
+<p>
+You can advice methods after returning successfully (i.e., no exceptions
+were raised):
+</p>
+<pre>
+        after_returning :types =&gt; ...
+        after_returning_from :types =&gt; ...     # synonym
+</pre>
+<p>
+You can advice methods after raising exceptions:
+</p>
+<pre>
+        after_raising :types =&gt; ...              # After any exception is thrown
+        after_raising_within :types =&gt; ...       # synonym
+        after_raising =&gt; MyError, :types =&gt; ...  # Only invoke advice if &quot;MyError&quot; is raised.
+        after_raising =&gt; [MyError1, MyError2], :types =&gt; ...
+                # Only invoke advice if &quot;MyError1&quot; or &quot;MyError2&quot; is raised.
+</pre>
+<p>
+You can advice methods after returning successfully or raising exceptions.
+(You can&#8216;t specify a set of exceptions in this case.):
+</p>
+<pre>
+        after :types =&gt; ...
+        after_raising_within_or_returning_from : types =&gt;      # synonym
+</pre>
+<p>
+You can advice methods both before after. This is different from around
+advice, where the around advice has to explicitly invoke the join point
+(using JoinPoint#proceed). Instead, the before-and-after methods are
+convenience wrappers around the creation of separate before advice and the
+corresponding after advice.
+</p>
+<pre>
+        before_and_after :types =&gt;, ...
+        before_and_after_returning :types =&gt;, ...
+        before_and_after_returning_from :types =&gt;, ... # synonym
+        before_and_after_raising :types =&gt;, ...
+        before_and_after_raising_within :types =&gt;, ... # synonym
+        before_and_after_raising_within_or_returning_from :types =&gt;, ...       # synonym
+</pre>
+<p>
+If you pass a block to Aspect.new, it will be the advice. When invoked, the
+advice will be passed the following three arguments,
+</p>
+<pre>
+        1) the JoinPoint, which will contain a JoinPoint::Context object with useful context information,
+        2) the object being sent the current message, and
+        3) the parameters passed with the original message.
+</pre>
+<p>
+Recall that a Proc doesn&#8216;t check the number of arguments (while
+lambdas do), so if you don&#8216;t care about any of the trailing
+parameters, you can leave them out of the parameter list. Recall that the
+other difference between the two is that a return statement in a Proc
+returns from the method that contains it. As rule, do NOT use return
+statements in advices!
+</p>
+<pre>
+        around :type =&gt; [...], :methods =&gt; :all do |join_point, object, *args|
+          advice_to_execute_before_the_jp
+          result = join_point.proceed  # Invoke the join point, passing *args implicitly (you can override...)
+          advice_to_execute_after_the_jp
+          result     # return the result of the &quot;proceed&quot;, unless you override the value.
+        end
+        around(:type =&gt; [...], :methods =&gt; :all) {|join_point, object, *args| ...}  # (...) necessary for precedence...
+</pre>
+<p>
+In the example, we show that you must be careful to return the correct
+value, usually the value returned by &quot;proceed&quot; or a value created
+by the block itself.
+</p>
+<p>
+Note, prior to V0.2.0, the advice argument list was |join_point, *args|. <a
+href="../classes/Aquarium.html">Aquarium</a> will look for such obsolete
+signatures (by looking at the arity of the proc) and raise an exception, if
+found. This check will be removed in a future release.
+</p>
+<p>
+Rather than passing a block as the advice, you can pass a
+previously-created Proc:
+</p>
+<pre>
+        around :type =&gt; [...], :methods =&gt; :all, :advice =&gt; advice
+        around :type =&gt; [...], :methods =&gt; :all, :advise_with =&gt; advice  # synonym for advice. Note the &quot;s&quot;!
+        around :type =&gt; [...], :methods =&gt; :all, :call =&gt; advice         # synonym for advice.
+        around :type =&gt; [...], :methods =&gt; :all, :invoke =&gt; advice       # synonym for advice.
+</pre>
+<p>
+Finally, when running in JRuby, you can advise Java types! See the examples
+in the separate RSpec suite in the &quot;jruby&quot; directory.
+</p>
+<h3>Packages</h3>
+<p>
+<a href="../classes/Aquarium/Aspects.html">Aquarium::Aspects</a> contains
+the Aspect class and supporting classes Pointcut, JoinPoint, etc.
+</p>
+<p>
+<a href="../classes/Aquarium/Finders.html">Aquarium::Finders</a> provides
+tools for locating types, objects, and methods in the runtime, using names,
+symbols, or regular expressions.
+</p>
+<p>
+<a href="../classes/Aquarium/Extensions.html">Aquarium::Extensions</a>
+provides extensions to several Ruby core library routines.
+</p>
+<p>
+<a href="../classes/Aquarium/Utils.html">Aquarium::Utils</a> provides
+general-purpose utilities for manipulating Strings, Sets, Hashes, etc. as
+well as some generic types.
+</p>
+<p>
+<a href="../classes/Aquarium/Extras.html">Aquarium::Extras</a> provides
+add-ons for <a href="../classes/Aquarium.html">Aquarium</a>, such as a
+Design by Contract implementation. These extras are NOT included when you
+require the general &#8216;aquarium.rb&#8217; file. You have to explicitly
+include &#8216;aquarium/extras&#8217; or one of the
+&#8216;aquarium/extras/*&#8217; if you want to use them.
+</p>
+<h2>Installation</h2>
+<p>
+The simplest approach is to install the gem:
+</p>
+<pre>
+  gem install -y aquarium    # sudo may be required on non-Windows systems
+</pre>
+<h2>Building the <a href="../classes/Aquarium.html">Aquarium</a> gem</h2>
+<p>
+If you prefer to build the gem locally, check out source from
+svn://rubyforge.org/var/svn/aquarium/trunk. Then do the following:
+</p>
+<pre>
+  rake gem
+  gem install pkg/aquarium-x.y.z.gem   # sudo may be required
+</pre>
+<h2>Running <a href="../classes/Aquarium.html">Aquarium</a>&#8216;s RSpec Specs</h2>
+<p>
+In order to run <a href="../classes/Aquarium.html">Aquarium</a>&#8216;s
+full suite of specs (rake pre_commit) you must install the following gems
+and tools:
+</p>
+<ul>
+<li>rake # Runs the build script
+
+</li>
+<li>rspec # Used instead of Test::Unit for TDD
+
+</li>
+<li>rcov # Verifies that the code is 100% covered by specs
+
+</li>
+<li>webgen # Generates the static HTML website
+
+</li>
+<li>RedCloth # Required by webgen
+
+</li>
+<li>syntax # Required by RSpec&#8216;s custom webgen extension to highlight
+ruby code
+
+</li>
+<li>diff-lcs # Required if you use the &#8212;diff switch
+
+</li>
+<li>win32console # Required by the &#8212;colour switch if you&#8216;re on
+Windows
+
+</li>
+<li>meta_project # Required in order to make releases at RubyForge
+
+</li>
+<li>heckle # Required if you use the &#8212;heckle switch
+
+</li>
+<li>jruby # Required if run the separate spec suite in the &quot;jruby&quot;
+directory
+
+</li>
+</ul>
+<p>
+Once those are all installed, you should be able to run the suite with the
+following steps:
+</p>
+<ul>
+<li>svn co svn://rubyforge.org/var/svn/aquarium/trunk aquarium
+
+</li>
+<li>cd aquarium
+
+</li>
+<li>rake spec
+
+</li>
+</ul>
+<p>
+or
+</p>
+<ul>
+<li>rake spec_rcov # also runs rcov
+
+</li>
+</ul>
+<p>
+Note that <a href="../classes/Aquarium.html">Aquarium</a> itself - once
+built - doesn&#8216;t have any dependencies outside the Ruby core and
+stdlib.
+</p>
+<p>
+If you want to run the tests for the JRuby support, you must also have
+JRuby 1.1RC2 or later installed. To run the specs for JRuby, use the
+command
+</p>
+<ul>
+<li>rake verify_jruby
+
+</li>
+</ul>
+<p>
+This command runs the standard <a
+href="../classes/Aquarium.html">Aquarium</a> specs using JRuby instead of
+MRI, then runs a separate set of specs in the &quot;jruby/spec&quot;
+directory which test <a href="../classes/Aquarium.html">Aquarium</a> with
+Java classes inside JRuby.
+</p>
+<p>
+See <a href="http://aquarium.rubyforge.org">aquarium.rubyforge.org</a> for
+further documentation.
+</p>
+<h3>Acknowledgments</h3>
+<p>
+My colleagues in the AOSD community, in particular those who developed
+AspectJ, have been a big inspiration. The RSpec team, in particular David
+Chelimsky, have really inspired my thinking about what&#8216;s possible in
+Ruby, especially in the realm of DSLs. I also cribbed parts of the RSpec
+Rake process ;) My colleagues at <a
+href="../classes/Object.html">Object</a> Mentor are an endless source of
+insight and inspiration.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Using @specification[:exclude_join_points].include?(jp) doesn't always work correctly (it probably uses equal?())!
+full_name: Aquarium::Aspects::ExclusionHandler#is_excluded_join_point?
+is_singleton: false
+name: is_excluded_join_point?
+params: (jp)
+visibility: public

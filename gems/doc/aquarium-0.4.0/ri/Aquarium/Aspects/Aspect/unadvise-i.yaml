@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: unadvise_join_points
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#unadvise
+is_singleton: false
+name: unadvise
+params: ()
+visibility: public

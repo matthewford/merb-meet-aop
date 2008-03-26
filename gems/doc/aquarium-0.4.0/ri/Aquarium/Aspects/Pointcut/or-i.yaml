@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: union
+- !ruby/object:RI::AliasName 
+  name: "|"
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Pointcut#or
+is_singleton: false
+name: or
+params: (pointcut2)
+visibility: public

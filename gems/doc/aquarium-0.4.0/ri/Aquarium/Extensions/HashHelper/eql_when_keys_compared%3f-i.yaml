@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "It appears that Hash#== uses Object#== (i.e., self.object_id == other.object_id) when comparing hash keys. (Array#== uses the overridden #== for the elements.)"
+full_name: Aquarium::Extensions::HashHelper#eql_when_keys_compared?
+is_singleton: false
+name: eql_when_keys_compared?
+params: (other)
+visibility: public

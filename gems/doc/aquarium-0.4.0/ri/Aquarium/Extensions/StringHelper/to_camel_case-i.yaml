@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Extensions::StringHelper#to_camel_case
+is_singleton: false
+name: to_camel_case
+params: ()
+visibility: public

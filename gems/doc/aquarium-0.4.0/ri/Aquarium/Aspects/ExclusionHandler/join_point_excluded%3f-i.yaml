@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::ExclusionHandler#join_point_excluded?
+is_singleton: false
+name: join_point_excluded?
+params: (jp)
+visibility: public

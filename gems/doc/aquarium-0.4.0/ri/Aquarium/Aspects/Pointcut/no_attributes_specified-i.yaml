@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Pointcut#no_attributes_specified
+is_singleton: false
+name: no_attributes_specified
+params: ()
+visibility: protected

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: UPGRADE</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>UPGRADE</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>UPGRADE
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sun Mar 23 11:37:45 +0000 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>Updating to <a href="../classes/Aquarium.html">Aquarium</a>-0.4.0</h2>
+<p>
+This release is fully backwards-compatible with previous releases. It
+expands the API slightly and adds internal improvements to better support
+JRuby. There should be no upgrade issues.
+</p>
+<h2>Updating to <a href="../classes/Aquarium.html">Aquarium</a>-0.3.1</h2>
+<p>
+There should be no upgrade issues with this release. However, the
+enhancement 17565 now ensures that a JoinPoint is only specified with one
+type and a type that actually exists, when a string, symbol, or regex is
+used to specify the type.
+</p>
+<h2>Updating to <a href="../classes/Aquarium.html">Aquarium</a>-0.3.0</h2>
+<p>
+There are no known upgrade issues with this release. Although many new
+synonyms were added for API method parameters, all changes are backwards
+compatible.
+</p>
+<h2>Updating to <a href="../classes/Aquarium.html">Aquarium</a>-0.2.0</h2>
+<p>
+This release changes the expected advice parameter list from |join_point,
+*method_args| to |join_point, object, *method_args|, where
+&quot;object&quot; is the current object receiving the message
+corresponding to the advised join point. Therefore, when you upgrade, you
+will need to modify your advices to take this extra argument, even if you
+don&#8216;t use it. Since an advice of |jp, *args| would silently
+&quot;absorb&quot; the object into the beginning of &quot;*args&quot;,
+thereby potentially causing confusion, <a
+href="../classes/Aquarium.html">Aquarium</a> will raise an exception if the
+advice block or proc has this obsolete signature.
+</p>
+<p>
+Note that &quot;JoinPoint#Context.advised_object&quot; is still supported,
+even if it is now less useful.
+</p>
+<h2>Updating to <a href="../classes/Aquarium.html">Aquarium</a>-0.1.8</h2>
+<p>
+V0.1.7 did not successfully &quot;register&quot; at rubyforge. This
+releases fixes that problem and also adds several feature enhancements and
+refactorings. There are no known upgrade issues.
+</p>
+<h2>Updating to <a href="../classes/Aquarium.html">Aquarium</a>-0.1.7</h2>
+<p>
+This is primarily a bug-fix release, so there should be no upgrading or
+incompatibility issues.
+</p>
+<h2>Updating to <a href="../classes/Aquarium.html">Aquarium</a>-0.1.6</h2>
+<p>
+As described in the CHANGES, the JoinPoint#type, JoinPoint#type=,
+JoinPoint#object, and JoinPoint#object= are now deprecated. Client code
+that uses these methods will still work, but warning messages will be
+written to STDOUT. See CHANGES for more details.
+</p>
+<h2>Updating to <a href="../classes/Aquarium.html">Aquarium</a>-0.1.5</h2>
+<p>
+This is mostly a bug-fix release, but it did have to introduce one API
+change, as described in the CHANGES. In particular, the aspect
+&quot;DSL&quot; methods are no longer automatically to <a
+href="../classes/Object.html">Object</a>, as some of their names overlap
+with methods added by Rails.
+</p>
+<p>
+Now, if you want these methods added to <a
+href="../classes/Object.html">Object</a>, you must require the new
+lib/aquarium/aspects/dsl/object_dsl.rb explicitly.
+</p>
+<p>
+As an alternative, if you just want these methods added selectively in
+certain types, then do the following:
+</p>
+<p>
+&lt;ruby&gt; require &#8216;aquarium/aspects/dsl/aspect_dsl&#8216;
+</p>
+<p>
+class MyClass # reopen &quot;MyClass&quot;
+</p>
+<pre>
+        # Add the methods as _class_ methods
+        include Aquarium::Aspects::DSL::AspectDSL
+</pre>
+<p>
+end &lt;/ruby&gt;
+</p>
+<p>
+or, use (class|module)_eval: &lt;ruby&gt; require
+&#8216;aquarium/aspects/dsl/aspect_dsl&#8216;
+</p>
+<p>
+MyClass.class_eval do
+</p>
+<pre>
+        # Add the methods as _class_ methods
+        include Aquarium::Aspects::DSL::AspectDSL
+</pre>
+<p>
+end &lt;/ruby&gt;
+</p>
+<p>
+To add the methods as <em>instance</em> methods on individual objects:
+</p>
+<p>
+&lt;ruby&gt; object = MyClass.new object.extend(<a
+href="../classes/Aquarium/Aspects/DSL/AspectDSL.html">Aquarium::Aspects::DSL::AspectDSL</a>)
+&lt;/ruby&gt;
+</p>
+<p>
+See the CHANGES for more details.
+</p>
+<h2>Updating existing code to <a href="../classes/Aquarium.html">Aquarium</a>-0.1.0</h2>
+<p>
+This is the first release of <a
+href="../classes/Aquarium.html">Aquarium</a>.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

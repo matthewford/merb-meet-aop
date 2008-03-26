@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Utils::TypeUtils::is_type?
+is_singleton: true
+name: is_type?
+params: (type_or_object)
+visibility: public

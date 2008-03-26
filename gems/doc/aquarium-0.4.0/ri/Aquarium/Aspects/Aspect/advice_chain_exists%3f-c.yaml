@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: TODO optimize calls to these *_advice_chain methods from other private methods.
+full_name: Aquarium::Aspects::Aspect::advice_chain_exists?
+is_singleton: true
+name: advice_chain_exists?
+params: (join_point)
+visibility: protected

@@ -1,0 +1,16 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+constants: []
+
+full_name: Symbol
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Extensions::SymbolHelper
+instance_methods: []
+
+name: Symbol
+superclass: Object

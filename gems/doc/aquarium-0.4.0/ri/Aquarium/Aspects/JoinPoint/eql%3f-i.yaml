@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: ==
+- !ruby/object:RI::AliasName 
+  name: ===
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::JoinPoint#eql?
+is_singleton: false
+name: eql?
+params: (other)
+visibility: public

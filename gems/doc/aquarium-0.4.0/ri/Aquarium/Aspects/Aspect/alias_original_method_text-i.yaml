@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#alias_original_method_text
+is_singleton: false
+name: alias_original_method_text
+params: (alias_method_name, join_point, type_being_advised_text)
+visibility: protected

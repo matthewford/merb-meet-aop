@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Aquarium::Utils::OptionsUtils</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Aquarium::Utils::OptionsUtils</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/aquarium/utils/options_utils_rb.html">
+                lib/aquarium/utils/options_utils.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Support parsing and processing of key-value pairs of options. Types
+including this module must define the following methods (see Pointcut for
+an example):
+</p>
+<pre>
+  &lt;tt&gt;all_allowed_option_symbols&lt;/tt&gt;
+    Return an array of all allowed options as symbols.
+  &lt;tt&gt;init_type_specific_specification(original_options, options_hash)&lt;/tt&gt;
+    Called to perform any final options handling unique for the type (optional).
+</pre>
+<p>
+In addition, including types should have their <tt>initialize</tt> methods
+calls this module&#8216;s <tt><a
+href="OptionsUtils.html#M000237">init_specification</a></tt> to do the
+options processing.
+</p>
+<p>
+This module also defines several universal options that will be available
+to all types that include this module: <tt>:logger =&gt;
+options_hash[:logger] || default system-wide Logger</tt>
+</p>
+<pre>
+  A standard library Logger used for any messages. A default system-wide logger is used otherwise.
+  The corresponding &lt;tt&gt;logger&lt;/tt&gt; and &lt;tt&gt;logger=&lt;/tt&gt; accessors are defined.
+</pre>
+<p>
+<tt>:logger_stream =&gt; options_hash[:logger_stream]</tt>
+</p>
+<pre>
+  An an alternative to defining the logger, you can define just the output stream where log output will be written.
+  If this option is specified, a new logger will be created for the instance with this output stream.
+  There is no corresponding accessors; use the corresponding methods on the &lt;tt&gt;logger&lt;/tt&gt; object instead.
+</pre>
+<p>
+<tt>:severity =&gt; options_hash[:severity]</tt>
+</p>
+<pre>
+  The logging severity level, one of the Logger::Severity values or the corresponding integer value.
+  If this option is specified, a new logger will be created for the instance with this output stream.
+  There is no corresponding accessors; use the corresponding methods on the &lt;tt&gt;logger&lt;/tt&gt; object instead.
+</pre>
+<p>
+<tt>:noop =&gt; options_hash[:noop] || false</tt>
+</p>
+<pre>
+  If true, don't do &quot;anything&quot;, the interpretation of which will vary with the type receiving the option.
+  For example, a type might go through some initialization, such as parsng its argument list, but
+  do nothing after that. Primarily useful for debugging.
+  The value can be accessed through the &lt;tt&gt;noop&lt;/tt&gt; and &lt;tt&gt;noop=&lt;/tt&gt; accessors.
+</pre>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000239">hashify</a>&nbsp;&nbsp;
+      <a href="#M000237">init_specification</a>&nbsp;&nbsp;
+      <a href="#M000238">init_type_specific_specification</a>&nbsp;&nbsp;
+      <a href="#M000241">set_logger_if_logger_or_stream_specified</a>&nbsp;&nbsp;
+      <a href="#M000243">set_logger_if_not_specified</a>&nbsp;&nbsp;
+      <a href="#M000242">set_logger_severity_if_specified</a>&nbsp;&nbsp;
+      <a href="#M000236">universal_options</a>&nbsp;&nbsp;
+      <a href="#M000240">validate_options</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000236" class="method-detail">
+        <a name="M000236"></a>
+
+        <div class="method-heading">
+          <a href="#M000236" class="method-signature">
+          <span class="method-name">universal_options</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000236-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000236-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/aquarium/utils/options_utils.rb, line 38</span>
+38:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">universal_options</span>
+39:         [<span class="ruby-identifier">:logger_stream</span>, <span class="ruby-identifier">:logger</span>, <span class="ruby-identifier">:severity</span>, <span class="ruby-identifier">:noop</span>]
+40:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000239" class="method-detail">
+        <a name="M000239"></a>
+
+        <div class="method-heading">
+          <a href="#M000239" class="method-signature">
+          <span class="method-name">hashify</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000239-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000239-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/aquarium/utils/options_utils.rb, line 90</span>
+ 90:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hashify</span> <span class="ruby-identifier">options</span>
+ 91:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">options</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+ 92:         <span class="ruby-identifier">new_options</span> = {}
+ 93:         <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+ 94:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+ 95:             <span class="ruby-identifier">new_options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">x</span>)
+ 96:           <span class="ruby-keyword kw">else</span>
+ 97:             <span class="ruby-identifier">new_options</span>[<span class="ruby-identifier">x</span>] = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>([])
+ 98:           <span class="ruby-keyword kw">end</span>
+ 99:         <span class="ruby-keyword kw">end</span>
+100:         <span class="ruby-identifier">new_options</span>
+101:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000237" class="method-detail">
+        <a name="M000237"></a>
+
+        <div class="method-heading">
+          <a href="#M000237" class="method-signature">
+          <span class="method-name">init_specification</span><span class="method-args">(options, canonical_options, &amp;optional_block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000237-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000237-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/aquarium/utils/options_utils.rb, line 42</span>
+42:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">init_specification</span> <span class="ruby-identifier">options</span>, <span class="ruby-identifier">canonical_options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">optional_block</span>
+43:         <span class="ruby-ivar">@canonical_options</span> = <span class="ruby-identifier">canonical_options</span>
+44:         <span class="ruby-ivar">@original_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">nil?</span>
+45:         <span class="ruby-ivar">@specification</span> = {}
+46:         <span class="ruby-identifier">options</span> <span class="ruby-operator">||=</span> {} 
+47:         <span class="ruby-identifier">options_hash</span> = <span class="ruby-identifier">hashify</span> <span class="ruby-identifier">options</span>
+48:         <span class="ruby-ivar">@canonical_options</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+49:           <span class="ruby-identifier">all_related_options</span> = <span class="ruby-identifier">make_array</span>(<span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">intern</span>]) <span class="ruby-operator">||</span> []
+50:           <span class="ruby-ivar">@canonical_options</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">inject</span>(<span class="ruby-identifier">all_related_options</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ary</span>, <span class="ruby-identifier">o</span><span class="ruby-operator">|</span> 
+51:             <span class="ruby-identifier">ary</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">o</span>.<span class="ruby-identifier">intern</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">o</span>.<span class="ruby-identifier">intern</span>]
+52:             <span class="ruby-identifier">ary</span>
+53:           <span class="ruby-keyword kw">end</span>
+54:           <span class="ruby-ivar">@specification</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">intern</span>] = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">make_array</span>(<span class="ruby-identifier">all_related_options</span>))
+55:         <span class="ruby-keyword kw">end</span>
+56: 
+57:         <span class="ruby-identifier">universal_options</span> = {
+58:           <span class="ruby-identifier">:logger_stream</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">:logger_stream</span>],
+59:           <span class="ruby-identifier">:severity</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">:severity</span>],
+60:           <span class="ruby-identifier">:noop</span>          =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">:noop</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">false</span>
+61:         }
+62: 
+63:         <span class="ruby-identifier">set_logger_if_logger_or_stream_specified</span> <span class="ruby-identifier">universal_options</span>, <span class="ruby-identifier">options_hash</span> 
+64:         <span class="ruby-identifier">set_logger_severity_if_specified</span>         <span class="ruby-identifier">universal_options</span>, <span class="ruby-identifier">options_hash</span> 
+65:         <span class="ruby-identifier">set_logger_if_not_specified</span>              <span class="ruby-identifier">universal_options</span>, <span class="ruby-identifier">options_hash</span> 
+66:         
+67:         <span class="ruby-constant">OptionsUtils</span><span class="ruby-operator">::</span><span class="ruby-identifier">universal_options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">uopt</span><span class="ruby-operator">|</span> 
+68:           <span class="ruby-ivar">@specification</span>[<span class="ruby-identifier">uopt</span>] = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>([<span class="ruby-identifier">universal_options</span>[<span class="ruby-identifier">uopt</span>]]) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">universal_options</span>[<span class="ruby-identifier">uopt</span>].<span class="ruby-identifier">nil?</span>
+69:         <span class="ruby-keyword kw">end</span>
+70:         <span class="ruby-identifier">init_type_specific_specification</span> <span class="ruby-ivar">@original_options</span>, <span class="ruby-identifier">options_hash</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">optional_block</span>
+71:         <span class="ruby-identifier">validate_options</span> <span class="ruby-identifier">options_hash</span>
+72:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000238" class="method-detail">
+        <a name="M000238"></a>
+
+        <div class="method-heading">
+          <a href="#M000238" class="method-signature">
+          <span class="method-name">init_type_specific_specification</span><span class="method-args">(original_options, options_hash, &amp;optional_block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Override for type-specific initialization
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000238-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000238-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/aquarium/utils/options_utils.rb, line 87</span>
+87:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">init_type_specific_specification</span> <span class="ruby-identifier">original_options</span>, <span class="ruby-identifier">options_hash</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">optional_block</span>
+88:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000240" class="method-detail">
+        <a name="M000240"></a>
+
+        <div class="method-heading">
+          <a href="#M000240" class="method-signature">
+          <span class="method-name">validate_options</span><span class="method-args">(options)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000240-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000240-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/aquarium/utils/options_utils.rb, line 103</span>
+103:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">validate_options</span> <span class="ruby-identifier">options</span>
+104:         <span class="ruby-identifier">unknowns</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">keys</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">all_allowed_option_symbols</span> <span class="ruby-operator">-</span> <span class="ruby-constant">OptionsUtils</span><span class="ruby-operator">::</span><span class="ruby-identifier">universal_options</span>
+105:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Aquarium</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidOptions</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Unknown options specified: #{unknowns.inspect}&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">unknowns</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+106:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000241" class="method-detail">
+        <a name="M000241"></a>
+
+        <div class="method-heading">
+          <a href="#M000241" class="method-signature">
+          <span class="method-name">set_logger_if_logger_or_stream_specified</span><span class="method-args">(universal_options, options_hash)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000241-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000241-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/aquarium/utils/options_utils.rb, line 110</span>
+110:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_logger_if_logger_or_stream_specified</span> <span class="ruby-identifier">universal_options</span>, <span class="ruby-identifier">options_hash</span> 
+111:         <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">:logger</span>].<span class="ruby-identifier">nil?</span>
+112:           <span class="ruby-identifier">universal_options</span>[<span class="ruby-identifier">:logger</span>] = <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">:logger</span>]
+113:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">:logger_stream</span>].<span class="ruby-identifier">nil?</span>
+114:           <span class="ruby-identifier">universal_options</span>[<span class="ruby-identifier">:logger</span>] = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">:logger_stream</span>]
+115:         <span class="ruby-keyword kw">end</span>
+116:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000243" class="method-detail">
+        <a name="M000243"></a>
+
+        <div class="method-heading">
+          <a href="#M000243" class="method-signature">
+          <span class="method-name">set_logger_if_not_specified</span><span class="method-args">(universal_options, options_hash)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000243-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000243-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/aquarium/utils/options_utils.rb, line 129</span>
+129:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_logger_if_not_specified</span> <span class="ruby-identifier">universal_options</span>, <span class="ruby-identifier">options_hash</span> 
+130:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">universal_options</span>[<span class="ruby-identifier">:logger</span>].<span class="ruby-identifier">nil?</span>
+131:           <span class="ruby-identifier">universal_options</span>[<span class="ruby-identifier">:logger</span>] = <span class="ruby-constant">DefaultLogger</span>.<span class="ruby-identifier">logger</span>
+132:         <span class="ruby-keyword kw">end</span> 
+133:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000242" class="method-detail">
+        <a name="M000242"></a>
+
+        <div class="method-heading">
+          <a href="#M000242" class="method-signature">
+          <span class="method-name">set_logger_severity_if_specified</span><span class="method-args">(universal_options, options_hash)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000242-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000242-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/aquarium/utils/options_utils.rb, line 118</span>
+118:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_logger_severity_if_specified</span> <span class="ruby-identifier">universal_options</span>, <span class="ruby-identifier">options_hash</span> 
+119:         <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">:severity</span>].<span class="ruby-identifier">nil?</span>
+120:           <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">universal_options</span>[<span class="ruby-identifier">:logger</span>].<span class="ruby-identifier">nil?</span>
+121:             <span class="ruby-identifier">universal_options</span>[<span class="ruby-identifier">:logger</span>].<span class="ruby-identifier">level</span> = <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">:severity</span>]
+122:           <span class="ruby-keyword kw">else</span>
+123:             <span class="ruby-identifier">universal_options</span>[<span class="ruby-identifier">:logger</span>] = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span> <span class="ruby-constant">STDERR</span>
+124:             <span class="ruby-identifier">universal_options</span>[<span class="ruby-identifier">:logger</span>].<span class="ruby-identifier">level</span> = <span class="ruby-identifier">options_hash</span>[<span class="ruby-identifier">:severity</span>]
+125:           <span class="ruby-keyword kw">end</span>
+126:         <span class="ruby-keyword kw">end</span>
+127:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

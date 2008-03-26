@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Pointcut::make_attribute_reading_writing_options
+is_singleton: true
+name: make_attribute_reading_writing_options
+params: (options_hash)
+visibility: public

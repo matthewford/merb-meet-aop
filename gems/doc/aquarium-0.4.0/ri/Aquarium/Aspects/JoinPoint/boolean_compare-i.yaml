@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::JoinPoint#boolean_compare
+is_singleton: false
+name: boolean_compare
+params: (b1, b2)
+visibility: protected

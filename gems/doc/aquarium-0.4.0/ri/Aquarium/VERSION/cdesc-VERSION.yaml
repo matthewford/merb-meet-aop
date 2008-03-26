@@ -1,0 +1,61 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: build_tag
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MAJOR
+  value: "0"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MINOR
+  value: "4"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: TINY
+  value: "0"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: RELEASE_CANDIDATE
+  value: nil
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "RANDOM_TOKEN: 0.598704893979657"
+  name: REV
+  value: "\"$LastChangedRevision: 7 $\".match(/LastChangedRevision: (\\d+)/)[1]"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: STRING
+  value: "[MAJOR, MINOR, TINY].join('.')"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: FULL_VERSION
+  value: "\"#{STRING} (r#{REV})\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: TAG
+  value: build_tag
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NAME
+  value: "\"Aquarium\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: URL
+  value: "\"http://aquarium.rubyforge.org\""
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DESCRIPTION
+  value: "\"#{NAME}-#{FULL_VERSION} - Aspect-Oriented Programming toolkit for Ruby\\n#{URL}\""
+full_name: Aquarium::VERSION
+includes: []
+
+instance_methods: []
+
+name: VERSION
+superclass: 

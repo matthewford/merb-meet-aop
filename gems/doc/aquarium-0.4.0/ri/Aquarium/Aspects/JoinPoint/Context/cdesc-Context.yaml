@@ -1,0 +1,64 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: advice_kind
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: advised_object
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: block_for_method
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: current_advice_node
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: parameters
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: proceed_proc
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: raised_exception
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: returned_value
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: Aquarium::Aspects::JoinPoint::Context
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: <=>
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: ===
+- !ruby/object:RI::MethodSummary 
+  name: assert_valid
+- !ruby/object:RI::MethodSummary 
+  name: do_invoke
+- !ruby/object:RI::MethodSummary 
+  name: eql?
+- !ruby/object:RI::MethodSummary 
+  name: invoke_original_join_point
+- !ruby/object:RI::MethodSummary 
+  name: proceed
+- !ruby/object:RI::MethodSummary 
+  name: update
+name: Context
+superclass: Object

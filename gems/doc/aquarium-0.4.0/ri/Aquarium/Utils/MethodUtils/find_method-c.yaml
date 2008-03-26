@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (type_or_instance, method_sym, protection.intern)
+comment: 
+full_name: Aquarium::Utils::MethodUtils::find_method
+is_singleton: true
+name: find_method
+params: (type_or_instance, method_sym, class_or_instance_only = nil, include_ancestors = true) {|type_or_instance, method_sym, protection.intern| ...}
+visibility: public

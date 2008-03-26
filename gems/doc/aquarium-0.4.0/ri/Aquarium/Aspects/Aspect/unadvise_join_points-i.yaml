@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #unadvise"
+full_name: Aquarium::Aspects::Aspect#unadvise_join_points
+is_singleton: false
+name: unadvise_join_points
+params: ()
+visibility: public

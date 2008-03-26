@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Invoke the &quot;enclosed&quot; join point, which could be aspect advice wrapping the original runtime join point. This method can only be called if the join point has a context object defined that represents an actual runtime &quot;state&quot;.
+full_name: Aquarium::Aspects::JoinPoint#proceed
+is_singleton: false
+name: proceed
+params: (*args, &block)
+visibility: public

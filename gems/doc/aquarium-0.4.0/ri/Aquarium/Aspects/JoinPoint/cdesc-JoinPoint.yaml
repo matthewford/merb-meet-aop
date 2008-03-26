@@ -1,0 +1,81 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: context
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: instance_or_class_method
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: method_name
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: target_object
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: target_type
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: visibility
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NIL_OBJECT
+  value: Aquarium::Utils::NilObject.new
+full_name: Aquarium::Aspects::JoinPoint
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: <=>
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: ===
+- !ruby/object:RI::MethodSummary 
+  name: assert_valid
+- !ruby/object:RI::MethodSummary 
+  name: boolean_compare
+- !ruby/object:RI::MethodSummary 
+  name: class_method?
+- !ruby/object:RI::MethodSummary 
+  name: class_or_instance_method_flag
+- !ruby/object:RI::MethodSummary 
+  name: compare_field
+- !ruby/object:RI::MethodSummary 
+  name: eql?
+- !ruby/object:RI::MethodSummary 
+  name: exists?
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: instance_method
+- !ruby/object:RI::MethodSummary 
+  name: instance_method?
+- !ruby/object:RI::MethodSummary 
+  name: invoke_original_join_point
+- !ruby/object:RI::MethodSummary 
+  name: make_current_context_join_point
+- !ruby/object:RI::MethodSummary 
+  name: proceed
+- !ruby/object:RI::MethodSummary 
+  name: resolve_type
+- !ruby/object:RI::MethodSummary 
+  name: target_type_or_object
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: type_or_object
+name: JoinPoint
+superclass: Object

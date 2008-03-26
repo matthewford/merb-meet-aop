@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: "field1, field2) : (field1 <=> field2)"
+comment: 
+full_name: Aquarium::Aspects::JoinPoint#compare_field
+is_singleton: false
+name: compare_field
+params: "(field_reader, other) {|field1, field2) : (field1 <=> field2)| ...}"
+visibility: protected

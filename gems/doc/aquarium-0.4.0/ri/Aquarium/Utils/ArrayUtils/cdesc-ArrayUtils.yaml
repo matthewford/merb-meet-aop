@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: make_array
+- !ruby/object:RI::MethodSummary 
+  name: strip_nils
+comment: 
+constants: []
+
+full_name: Aquarium::Utils::ArrayUtils
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: make_array
+- !ruby/object:RI::MethodSummary 
+  name: strip_nils
+name: ArrayUtils
+superclass: 

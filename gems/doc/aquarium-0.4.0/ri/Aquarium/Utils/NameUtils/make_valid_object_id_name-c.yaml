@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Fixes Tracker #13864."
+full_name: Aquarium::Utils::NameUtils::make_valid_object_id_name
+is_singleton: true
+name: make_valid_object_id_name
+params: (object_id)
+visibility: public

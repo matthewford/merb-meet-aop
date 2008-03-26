@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::TypeFinder#make_return_hash
+is_singleton: false
+name: make_return_hash
+params: (found)
+visibility: protected

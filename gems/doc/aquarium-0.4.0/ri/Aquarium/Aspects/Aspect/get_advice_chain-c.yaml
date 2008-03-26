@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect::get_advice_chain
+is_singleton: true
+name: get_advice_chain
+params: (join_point)
+visibility: protected

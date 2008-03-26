@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::JoinPoint::Context#do_invoke
+is_singleton: false
+name: do_invoke
+params: (proc_to_send, method, enclosing_join_point, *args, &block)
+visibility: protected

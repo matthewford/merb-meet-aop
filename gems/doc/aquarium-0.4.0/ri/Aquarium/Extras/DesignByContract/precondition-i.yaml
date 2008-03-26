@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Extras::DesignByContract#precondition
+is_singleton: false
+name: precondition
+params: (*args, &contract_block)
+visibility: public

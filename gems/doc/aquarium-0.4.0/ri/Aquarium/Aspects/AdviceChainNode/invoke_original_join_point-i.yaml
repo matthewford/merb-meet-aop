@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::AdviceChainNode#invoke_original_join_point
+is_singleton: false
+name: invoke_original_join_point
+params: (current_jp, obj, *args)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::MethodFinder::init_method_options
+is_singleton: true
+name: init_method_options
+params: (scope_options_set)
+visibility: public

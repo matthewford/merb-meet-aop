@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::JoinPoint#class_or_instance_method_flag
+is_singleton: false
+name: class_or_instance_method_flag
+params: ()
+visibility: protected

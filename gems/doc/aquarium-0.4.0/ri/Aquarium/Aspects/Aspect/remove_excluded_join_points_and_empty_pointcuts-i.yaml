@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#remove_excluded_join_points_and_empty_pointcuts
+is_singleton: false
+name: remove_excluded_join_points_and_empty_pointcuts
+params: (pointcuts)
+visibility: protected

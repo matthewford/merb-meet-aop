@@ -1,0 +1,20 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: logger
+- !ruby/object:RI::MethodSummary 
+  name: logger=
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: DefaultLogger holds the Aquarium-wide &quot;default&quot; Ruby standard library logger. Individual objects may chose to create their own loggers.
+constants: []
+
+full_name: Aquarium::Utils::DefaultLogger
+includes: []
+
+instance_methods: []
+
+name: DefaultLogger
+superclass: 

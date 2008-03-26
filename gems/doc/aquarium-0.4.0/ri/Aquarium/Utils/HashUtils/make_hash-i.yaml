@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (element)
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Convert the input item or array into a hash with a nil value or the result of evaluating the optional input block, which takes a single argument for the item. If the input is already a hash, it is returned unmodified.
+full_name: Aquarium::Utils::HashUtils#make_hash
+is_singleton: false
+name: make_hash
+params: (item_or_array_or_hash) {|element| ...}
+visibility: public

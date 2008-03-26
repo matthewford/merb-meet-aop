@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: union
+- !ruby/object:RI::AliasName 
+  name: "|"
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "&quot;Or&quot; two results together"
+full_name: Aquarium::Finders::FinderResult#or
+is_singleton: false
+name: or
+params: (other_result)
+visibility: public

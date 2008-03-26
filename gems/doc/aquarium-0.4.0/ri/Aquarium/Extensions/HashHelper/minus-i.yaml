@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: "-"
+block_params: value1, value2
+comment: 
+full_name: Aquarium::Extensions::HashHelper#minus
+is_singleton: false
+name: minus
+params: (other_hash) {|value1, value2| ...}
+visibility: public

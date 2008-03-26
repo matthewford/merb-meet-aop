@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return a copy of the input array with all nils removed.
+full_name: Aquarium::Utils::ArrayUtils#strip_nils
+is_singleton: false
+name: strip_nils
+params: (array)
+visibility: public

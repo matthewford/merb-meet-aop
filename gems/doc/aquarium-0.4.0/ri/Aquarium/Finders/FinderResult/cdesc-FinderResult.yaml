@@ -1,0 +1,64 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: matched
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: not_matched
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NIL_OBJECT
+  value: FinderResult.new unless const_defined?(:NIL_OBJECT)
+full_name: Aquarium::Finders::FinderResult
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::HashUtils
+- !ruby/object:RI::IncludedModule 
+  name: Aquarium::Utils::SetUtils
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "&"
+- !ruby/object:RI::MethodSummary 
+  name: "-"
+- !ruby/object:RI::MethodSummary 
+  name: "<<"
+- !ruby/object:RI::MethodSummary 
+  name: ==
+- !ruby/object:RI::MethodSummary 
+  name: and
+- !ruby/object:RI::MethodSummary 
+  name: append_matched
+- !ruby/object:RI::MethodSummary 
+  name: append_not_matched
+- !ruby/object:RI::MethodSummary 
+  name: empty?
+- !ruby/object:RI::MethodSummary 
+  name: eql?
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: intersection
+- !ruby/object:RI::MethodSummary 
+  name: matched_keys
+- !ruby/object:RI::MethodSummary 
+  name: minus
+- !ruby/object:RI::MethodSummary 
+  name: not_matched_keys
+- !ruby/object:RI::MethodSummary 
+  name: or
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+- !ruby/object:RI::MethodSummary 
+  name: union
+- !ruby/object:RI::MethodSummary 
+  name: "|"
+name: FinderResult
+superclass: Object

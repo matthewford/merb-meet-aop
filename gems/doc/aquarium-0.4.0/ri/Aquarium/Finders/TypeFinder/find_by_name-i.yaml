@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "For a name (not a regular expression), return the corresponding type. (Adapted from the RubyQuiz #113 solution by James Edward Gray II) See also this blog: http://blog.sidu.in/2008/02/loading-classes-from-strings-in-ruby.html I discovered that eval works fine with JRuby wrapper classes, while splitting on '::' and calling const_get on each module fails!"
+full_name: Aquarium::Finders::TypeFinder#find_by_name
+is_singleton: false
+name: find_by_name
+params: (type_name, option)
+visibility: protected

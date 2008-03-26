@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Finders::MethodFinder#do_find_all_by
+is_singleton: false
+name: do_find_all_by
+params: (types_and_objects, method_names_or_regexps)
+visibility: protected

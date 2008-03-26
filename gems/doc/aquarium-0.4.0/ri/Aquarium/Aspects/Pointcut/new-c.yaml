@@ -1,0 +1,104 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Construct a Pointcut for methods in types or objects.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Pointcut.new :join_points =&gt; [...] | :type{s} =&gt; [...] | :object{s} =&gt; [...]        #      {, :method{s} =&gt; [], :method_options =&gt; [...],        #      :attribute{s} =&gt; [...], :attribute_options[...]}\n"
+- !ruby/struct:SM::Flow::P 
+  body: where the &quot;{}&quot; indicate optional elements. Most of the arguments have many synonyms, shown below, to promote an English-like DSL.
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:join_points =&gt; join_point || [join_point_list]</tt>:: <tt>:join_point =&gt; join_point || [join_point_list]</tt>:: <tt>:for_join_points =&gt; join_point || [join_point_list]</tt>:: <tt>:for_join_point =&gt; join_point || [join_point_list]</tt>:: <tt>:on_join_points =&gt; join_point || [join_point_list]</tt>:: <tt>:on_join_point =&gt; join_point || [join_point_list]</tt>:: <tt>:within_join_points =&gt; join_point || [join_point_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:within_join_point  => join_point || [join_point_list]</tt>:"
+    body: One or an array of join_points.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:types =&gt; type || [type_list]</tt>:: <tt>:type =&gt; type || [type_list]</tt>:: <tt>:for_types =&gt; type || [type_list]</tt>:: <tt>:for_type =&gt; type || [type_list]</tt>:: <tt>:on_types =&gt; type || [type_list]</tt>:: <tt>:on_type =&gt; type || [type_list]</tt>:: <tt>:within_types =&gt; type || [type_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:within_type  => type || [type_list]</tt>:"
+    body: One or an array of types, type names and/or type regular expessions to match.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:types_and_descendents =&gt; type || [type_list]</tt>:: <tt>:type_and_descendents =&gt; type || [type_list]</tt>:: <tt>:types_and_ancestors =&gt; type || [type_list]</tt>:: <tt>:type_and_ancestors =&gt; type || [type_list]</tt>:: <tt>:for_types_and_ancestors =&gt; type || [type_list]</tt>:: <tt>:for_type_and_ancestors =&gt; type || [type_list]</tt>:: <tt>:on_types_and_descendents =&gt; type || [type_list]</tt>:: <tt>:on_type_and_descendents =&gt; type || [type_list]</tt>:: <tt>:on_types_and_ancestors =&gt; type || [type_list]</tt>:: <tt>:on_type_and_ancestors =&gt; type || [type_list]</tt>:: <tt>:within_types_and_descendents =&gt; type || [type_list]</tt>:: <tt>:within_type_and_descendents =&gt; type || [type_list]</tt>:: <tt>:within_types_and_ancestors =&gt; type || [type_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:within_type_and_ancestors    => type || [type_list]</tt>:"
+    body: One or an array of types and either their descendents or ancestors. If you want both the descendents <em>and</em> ancestors, use both options.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:objects =&gt; object || [object_list]</tt>:: <tt>:object =&gt; object || [object_list]</tt>:: <tt>:for_objects =&gt; object || [object_list]</tt>:: <tt>:for_object =&gt; object || [object_list]</tt>:: <tt>:on_objects =&gt; object || [object_list]</tt>:: <tt>:on_object =&gt; object || [object_list]</tt>:: <tt>:within_objects =&gt; object || [object_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:within_object  => object || [object_list]</tt>:"
+    body: Objects to match.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:default_objects =&gt; object || [object_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:default_object => object || [object_list]</tt>:"
+    body: An &quot;internal&quot; flag used by AspectDSL#pointcut when no object or type is specified, the value of :default_objects will be used, if defined. AspectDSL#pointcut sets the value to self, so that the user doesn't have to in the appropriate contexts. This flag is subject to change, so don't use it explicitly!
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:methods =&gt; method || [method_list]</tt>:: <tt>:method =&gt; method || [method_list]</tt>:: <tt>:within_methods =&gt; method || [method_list]</tt>:: <tt>:within_method =&gt; method || [method_list]</tt>:: <tt>:calling =&gt; method || [method_list]</tt>:: <tt>:calls_to =&gt; method || [method_list]</tt>:: <tt>:invoking =&gt; method || [method_list]</tt>:: <tt>:invocations_of =&gt; method || [method_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:sending_message_to  => method || [method_list]</tt>:"
+    body: One or an array of methods, method names and/or method regular expessions to match. By default, unless :attributes are specified, searches for public instance methods with the method option :exclude_ancestor_methods implied, unless explicit method options are given.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:method_options => [options]</tt>:"
+    body: One or more options supported by Aquarium::Finders::MethodFinder. The :exclude_ancestor_methods option is most useful.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:reading =&gt; attribute || [attribute_list]</tt>:: <tt>:writing =&gt; attribute || [attribute_list]</tt>:: <tt>:changing =&gt; attribute || [attribute_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:accessing => attribute || [attribute_list]</tt>:"
+    body: One or an array of attribute names and/or regular expessions to match. This is syntactic sugar for the corresponding attribute readers and/or writers methods. If <tt>:reading</tt> is specified, just attribute readers are matched. If <tt>:writing</tt> is specified, just attribute writers are matched. If <tt>:accessing</tt> is specified, both readers and writers are matched. Any matches will be joined with the matched <tt>:methods.</tt>.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:attributes =&gt; attribute || [attribute_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:attribute  => attribute || [attribute_list]</tt>:"
+    body: One or an array of attribute names and/or regular expessions to match. This is syntactic sugar for the corresponding attribute readers and/or writers methods, as specified using the <tt>:attrbute_options</tt>. Any matches will be joined with the matched <tt>:methods.</tt>.
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:attribute_options => [options]</tt>:"
+    body: One or more of <tt>:readers</tt>, <tt>:reader</tt> (synonymous), <tt>:writers</tt>, and/or <tt>:writer</tt> (synonymous). By default, both readers and writers are matched. <tt>:reading =&gt; ...</tt> is synonymous with <tt>:attributes =&gt; ..., :attribute_options =&gt; [:readers]</tt>. <tt>:writing =&gt; ...</tt> and <tt>:changing =&gt; ...</tt> are synonymous with <tt>:attributes =&gt; ..., :attribute_options =&gt; [:writers]</tt>. <tt>:accessing =&gt; ...</tt> is synonymous with <tt>:attributes =&gt; ...</tt>.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:exclude_pointcuts =&gt; pc || [pc_list]</tt>:: <tt>:exclude_pointcut =&gt; pc || [pc_list]</tt>:: <tt>:exclude_join_points =&gt; jp || [jp_list]</tt>:: <tt>:exclude_join_point =&gt; jp || [jp_list]</tt>:: <tt>:exclude_types =&gt; type || [type_list]</tt>:: <tt>:exclude_types =&gt; type || [type_list]</tt>:: <tt>:exclude_type =&gt; type || [type_list]</tt>:: <tt>:exclude_objects =&gt; object || [object_list]</tt>:: <tt>:exclude_object =&gt; object || [object_list]</tt>:: <tt>:exclude_methods =&gt; method || [method_list]</tt>:: <tt>:exclude_method =&gt; method || [method_list]</tt>:: <tt>:exclude_attributes =&gt; attribute || [attribute_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:exclude_attribute   => attribute || [attribute_list]</tt>:"
+    body: Also <tt>exclude_{synonyms}</tt> of the same options... Exclude the specified &quot;things&quot; from the matched join points. If pointcuts are excluded, they should be subsets of the matched pointcuts. Otherwise, the resulting pointcut will be empty!
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:exclude_types_and_descendents =&gt; type || [type_list]</tt>:: <tt>:exclude_type_and_descendents =&gt; type || [type_list]</tt>:: <tt>:exclude_types_and_ancestors =&gt; type || [type_list]</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:exclude_type_and_ancestors    => type || [type_list]</tt>:"
+    body: Exclude the specified types and their descendents, ancestors. If you want to exclude both the descendents <em>and</em> ancestors, use both options.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: Pointcut.new also accepts all the &quot;universal&quot; options documented in OptionsUtils.
+full_name: Aquarium::Aspects::Pointcut::new
+is_singleton: true
+name: new
+params: (options = {})
+visibility: public

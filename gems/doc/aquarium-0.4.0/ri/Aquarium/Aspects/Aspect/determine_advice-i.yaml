@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#determine_advice
+is_singleton: false
+name: determine_advice
+params: (block)
+visibility: protected

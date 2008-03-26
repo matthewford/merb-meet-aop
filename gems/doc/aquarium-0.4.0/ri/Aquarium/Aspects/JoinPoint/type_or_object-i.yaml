@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: target_type_or_object
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::JoinPoint#type_or_object
+is_singleton: false
+name: type_or_object
+params: ()
+visibility: public

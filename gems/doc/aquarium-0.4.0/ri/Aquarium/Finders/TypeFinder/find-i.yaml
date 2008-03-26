@@ -1,0 +1,71 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " finder_result = TypeFinder.new.find [options =&gt; [...] ]\n"
+- !ruby/struct:SM::Flow::P 
+  body: "where <tt>:types =&gt; types_and_type_names_and_regexps</tt>:: <tt>:names =&gt; types_and_type_names_and_regexps</tt>:: <tt>:type =&gt; types_and_type_names_and_regexps</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:name  => types_and_type_names_and_regexps</tt>:"
+    body: A single type or array of types, specified using any combination of the type name strings, the type &quot;constants&quot; and/or regular expessions. The four different flags are just &quot;sugar&quot; for each other.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:types_and_descendents =&gt; types_and_type_names_and_regexps</tt>:: <tt>:names_and_descendents =&gt; types_and_type_names_and_regexps</tt>:: <tt>:type_and_descendents =&gt; types_and_type_names_and_regexps</tt>:: <tt>:name_and_descendents =&gt; types_and_type_names_and_regexps</tt>::"
+- !ruby/struct:SM::Flow::P 
+  body: Same as for <tt>:types</tt> <em>etc.</em>, but also match their descendents.
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:types_and_ancestors =&gt; types_and_type_names_and_regexps</tt>:: <tt>:names_and_ancestors =&gt; types_and_type_names_and_regexps</tt>:: <tt>:type_and_ancestors =&gt; types_and_type_names_and_regexps</tt>:: <tt>:name_and_ancestors =&gt; types_and_type_names_and_regexps</tt>::"
+- !ruby/struct:SM::Flow::P 
+  body: Same as for <tt>:types</tt> <em>etc.</em>, but also match their ancestors. This option will also match <tt>Class</tt>, <tt>Module</tt>, &lt;i&gt;etc.&lt;/&gt;, so use with caution!
+- !ruby/struct:SM::Flow::P 
+  body: To get both descendents and ancestors, use both options with the same type specification.
+- !ruby/struct:SM::Flow::P 
+  body: "The &quot;other options&quot; include the following:"
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:exclude_type =&gt; types_and_type_names_and_regexps</tt>:: <tt>:exclude_types =&gt; types_and_type_names_and_regexps</tt>:: <tt>:exclude_name =&gt; types_and_type_names_and_regexps</tt>::"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "<tt>:exclude_names => types_and_type_names_and_regexps</tt>:"
+    body: Exclude the specified type or list of types from the list of matched types. These excluded types <b>won't</b> appear in the FinderResult#not_matched.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:exclude_types_and_descendents =&gt; types_and_type_names_and_regexps</tt>:: <tt>:exclude_names_and_descendents =&gt; types_and_type_names_and_regexps</tt>:: <tt>:exclude_type_and_descendents =&gt; types_and_type_names_and_regexps</tt>:: <tt>:exclude_name_and_descendents =&gt; types_and_type_names_and_regexps</tt>::"
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>:exclude_types_and_ancestors =&gt; types_and_type_names_and_regexps</tt>:: <tt>:exclude_names_and_ancestors =&gt; types_and_type_names_and_regexps</tt>:: <tt>:exclude_type_and_ancestors =&gt; types_and_type_names_and_regexps</tt>:: <tt>:exclude_name_and_ancestors =&gt; types_and_type_names_and_regexps</tt>::"
+- !ruby/struct:SM::Flow::P 
+  body: Exclude the descendents or ancestors, as well.
+- !ruby/struct:SM::Flow::P 
+  body: Because of the special sigificance of the module (&quot;namespace&quot;) separator &quot;::&quot;, the rules for the regular expressions are as follows. Assume that &quot;subexp&quot; is a &quot;sub regular expression&quot; that results if you split on the separator &quot;::&quot;.
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "A full regexp with no \"::\":"
+    body: Allow partial matches, <em>i.e.</em>, as if you wrote <tt>/^.*#{regexp}.*$/.</tt>
+  - !ruby/struct:SM::Flow::LI 
+    label: "A subexp before the first \"::\":"
+    body: It behaves as <tt>/^.*#{subexp}::.../</tt>, meaning that the end of &quot;subexp&quot; must be followed by &quot;::&quot;.
+  - !ruby/struct:SM::Flow::LI 
+    label: "A subexp after the last \"::\":"
+    body: It behaves as <tt>/...::#{subexp}$/</tt>, meaning that the beginning of &quot;subexp&quot; must immediately follow a &quot;::&quot;.
+  - !ruby/struct:SM::Flow::LI 
+    label: "For a subexp between two \"::\":"
+    body: It behaves as <tt>/...::#{subexp}::.../</tt>, meaning that the subexp must match the whole name between the &quot;::&quot; exactly.
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: "Note: a common idiom in aspects is to include descendents of a type, but not the type itself. You can do as in the following example:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  &lt;tt&gt;... :type_and_descendents =&gt; &quot;Foo&quot;, :exclude_type =&gt; &quot;Foo&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "TODO: Use the new OptionsUtils."
+full_name: Aquarium::Finders::TypeFinder#find
+is_singleton: false
+name: find
+params: (options = {})
+visibility: public

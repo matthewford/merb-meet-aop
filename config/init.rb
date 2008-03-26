@@ -16,43 +16,18 @@ Merb::Config.use do |c|
   c[:session_store] = 'cookie'
 end  
 
-### Merb doesn't come with database support by default.  You need
-### an ORM plugin.  Install one, and uncomment one of the following lines,
-### if you need a database.
-
-### Uncomment for DataMapper ORM
 use_orm :datamapper
 
-### Uncomment for ActiveRecord ORM
-# use_orm :activerecord
-
-### Uncomment for Sequel ORM
-# use_orm :sequel
-
-
-### This defines which test framework the generators will use
-### rspec is turned on by default
-###
-### Note that you need to install the merb_rspec if you want to ue
-### rspec and merb_test_unit if you want to use test_unit. 
-### merb_rspec is installed by default if you did gem install
-### merb.
-###
-# use_test :test_unit
 use_test :rspec
 
 ### Add your other dependencies here
-
-# These are some examples of how you might specify dependencies.
-# 
+dependencies "aquarium"
 # dependencies "RedCloth", "merb_helpers"
-# OR
-# dependency "RedCloth", "> 3.0"
-# OR
-# dependencies "RedCloth" => "> 3.0", "ruby-aes-cext" => "= 1.0"
 
 Merb::BootLoader.after_app_loads do
   ### Add dependencies here that must load after the application loads:
-
-  # dependency "magic_admin" # this gem uses the app's model classes
+  require 'aspects/an_example_match'; puts " ~ loading an_example_match aspect"
+  # require 'aspects/authentication'
+  # require 'aspects/exception_handler'
+  # require 'aspects/logged_activity'
 end

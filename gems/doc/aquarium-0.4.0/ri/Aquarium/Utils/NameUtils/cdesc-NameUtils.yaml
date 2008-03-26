@@ -1,0 +1,24 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: make_type_or_object_key
+- !ruby/object:RI::MethodSummary 
+  name: make_valid_attr_name_from_method_name
+- !ruby/object:RI::MethodSummary 
+  name: make_valid_object_id_name
+- !ruby/object:RI::MethodSummary 
+  name: make_valid_object_name
+- !ruby/object:RI::MethodSummary 
+  name: make_valid_type_name
+comment: 
+constants: []
+
+full_name: Aquarium::Utils::NameUtils
+includes: []
+
+instance_methods: []
+
+name: NameUtils
+superclass: 

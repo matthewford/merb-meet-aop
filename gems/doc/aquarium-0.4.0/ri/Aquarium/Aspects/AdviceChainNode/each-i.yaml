@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: node
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Supports Enumerable
+full_name: Aquarium::Aspects::AdviceChainNode#each
+is_singleton: false
+name: each
+params: () {|node| ...}
+visibility: public

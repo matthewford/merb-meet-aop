@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: intersection
+- !ruby/object:RI::AliasName 
+  name: "&"
+block_params: value1, value2
+comment: 
+full_name: Aquarium::Extensions::HashHelper#and
+is_singleton: false
+name: and
+params: (other_hash) {|value1, value2| ...}
+visibility: public

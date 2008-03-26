@@ -1,0 +1,39 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Supports Enumerable, but not the sorting methods, as this class is a linked list structure. This is of limited usefulness, because you wouldn't use an iterator to invoke the procs in the chain, because each proc will invoke the next node arbitrarily or possibly not at all in the case of around advice!
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NIL_OBJECT
+  value: Aquarium::Utils::NilObject.new
+full_name: Aquarium::Aspects::AdviceChainNode
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Enumerable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+- !ruby/object:RI::MethodSummary 
+  name: do_call
+- !ruby/object:RI::MethodSummary 
+  name: each
+- !ruby/object:RI::MethodSummary 
+  name: empty?
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: invoke_original_join_point
+- !ruby/object:RI::MethodSummary 
+  name: invoking_object
+- !ruby/object:RI::MethodSummary 
+  name: last
+- !ruby/object:RI::MethodSummary 
+  name: size
+name: AdviceChainNode
+superclass: Object

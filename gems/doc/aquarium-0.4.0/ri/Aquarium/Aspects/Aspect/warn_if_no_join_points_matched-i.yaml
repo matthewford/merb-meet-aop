@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Aspects::Aspect#warn_if_no_join_points_matched
+is_singleton: false
+name: warn_if_no_join_points_matched
+params: ()
+visibility: protected

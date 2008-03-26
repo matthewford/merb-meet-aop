@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Aquarium::Utils::OptionsUtils#hashify
+is_singleton: false
+name: hashify
+params: (options)
+visibility: public

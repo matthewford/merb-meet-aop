@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "When advising an instance, create an override method that gets advised instead of the types method. Otherwise, all objects will be advised! Note: this also solves bug #15202."
+full_name: Aquarium::Aspects::Aspect#def_eigenclass_method_text
+is_singleton: false
+name: def_eigenclass_method_text
+params: (join_point)
+visibility: protected
