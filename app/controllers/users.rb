@@ -6,11 +6,9 @@ class Users < Application
     display @users
   end
 
-  def show
-    @user = User.first(params[:id])
+  def show(id = params[:id])
+    @user = User[id]
     display @user
-    rescue DataMapper::ObjectNotFoundError
-      raise NotFound
   end
 
   def new
@@ -19,16 +17,14 @@ class Users < Application
     render
   end
 
-  def edit
+  def edit(id = params[:id])
     only_provides :html
-    @user = User.first(params[:id])
+    @user = User[id]
     render
-    rescue DataMapper::ObjectNotFoundError
-      raise NotFound
   end
 
-  def create
-    @user = User.new(params[:user])
+  def create(user = params[:user])
+    @user = User.new(user)
     if @user.save
       redirect url(:user, @user)
     else
@@ -36,26 +32,22 @@ class Users < Application
     end
   end
 
-  def update
-    @user = User.first(params[:id])
-    if @user.update_attributes(params[:user])
+  def update(id = params[:id], user = params[:user])
+   @user = User[id]
+    if @user.update_attributes(user)
       redirect url(:user, @user)
     else
       raise BadRequest
     end
-    rescue DataMapper::ObjectNotFoundError
-      raise NotFound
   end
 
-  def destroy
-    @user = User.first(params[:id])
+  def destroy(id = params[:id])
+    @user = User[id]
     if @user.destroy!
       redirect url(:users)
     else
       raise BadRequest
     end
-    rescue DataMapper::ObjectNotFoundError
-      raise NotFound
   end
   
 end
