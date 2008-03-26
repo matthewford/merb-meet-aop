@@ -29,6 +29,6 @@ Merb::BootLoader.after_app_loads do
   ### Add dependencies here that must load after the application loads:
   # require 'aspects/an_example_match';   puts " ~ loading an_example_match aspect"
   # require 'aspects/authentication';     puts " ~ loading authentication aspect"
-  require 'aspects/exception_handler';     puts " ~ loading exception_handler aspect"
-  # require 'aspects/logged_activity'
+  require 'aspects/exception_handler';  puts " ~ loading exception_handler aspect"
+  # require 'aspects/logged_activity';    puts " ~ loading logged_activity aspect"
 end

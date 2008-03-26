@@ -1,12 +1,17 @@
-# refactor auth logic in here
-# include Aquarium::Aspects
+# module AuthenticationRules; end
 # 
-# methods = [:index, :show, :new, :create, :update, :destroy]
-# classes = [:Users]
+# class AuthenticationRules::Aspects
+#   include Aquarium::Aspects
+#   include Singleton
 # 
-# pointcut = Pointcut.new :calls_to => methods, :type => classes
-# 
-# aspect = Aspect.new :before,  :pointcut => pointcut do |join_point, object, *args|
-# # auth rules
+#   @classes  = [:Applicaion]
+#   @all_methods  = [:index, :show, :new, :create, :update, :destroy]
+#   @auth_methods = [:new, :create, :update, :destroy]
 #   
+#   @pointcut = Pointcut.new :calls_to => @methods, :on_type => @classes
+#   
+#   #after class loads, add auth logic
+# 
 # end
+# 
+# AuthenticationRules::Aspects
