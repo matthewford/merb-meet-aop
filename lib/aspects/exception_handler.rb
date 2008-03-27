@@ -5,7 +5,7 @@ class ExceptionHandler::Aspects
   include Singleton
 
   @classes  = [Users]
-  @methods  = [:index, :show, :update, :destroy]
+  @methods  = [:show, :edit, :update, :destroy]
   @pointcut = Pointcut.new :calls_to => @methods, :on_type => @classes
   
   def self.catch_object_not_found_error
@@ -13,7 +13,7 @@ class ExceptionHandler::Aspects
       begin
         join_point.proceed   # call the wrapped join point
       rescue DataMapper::ObjectNotFoundError => e
-        raise Exceptions::NotFound  
+        raise Exceptions::NotFound  # renders 404 page
       end
     end
   end
