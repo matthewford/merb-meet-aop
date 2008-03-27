@@ -3,7 +3,9 @@
 <ul>
 <% @users.each do |u| %>
   
-  <li><%= u.name %></li>
+  <li>User: <%= u.id %><br />
+      Name: <%= u.name %>
+      </li>
   
 <% end %>
 </ul>

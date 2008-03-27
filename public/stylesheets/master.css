@@ -1,7 +1,8 @@
 body {
   font-family: Arial, Verdana, sans-serif;
-  font-size: 12px;
+  font-size: 80px;
   background-color: #fff;
+  text-shadow: #999999 3px 3px 2px;
 }
 * {
   margin: 0px;
@@ -40,7 +41,7 @@ hr {
   text-align: left;
 }
 h1 {
-  font-size: 28px;
+  font-size: 100px;
   color: #c55;
   background-color: #fff;
   font-family: Arial, Verdana, sans-serif;
@@ -75,7 +76,7 @@ h3 {
 
 #main-container {
   margin: 5px 5px 5px 260px;
-  padding: 15px;
+  padding: 40px;
   border-left: 1px solid silver;
   min-height: 400px;
 }
@@ -116,4 +117,14 @@ a:hover {
 }
 #main-container ul {
   margin-left: 3.0em;
+}
+#center-container {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#center-container img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }

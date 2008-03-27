@@ -1,4 +1,4 @@
-module Example
+module Tracing
   class Aspects
     include Aquarium::Aspects
     include Singleton
@@ -30,7 +30,7 @@ module Example
   end
 end
 
-Example::Aspects.before_advice
-Example::Aspects.after_advice
-Example::Aspects.around_advice
+Tracing::Aspects.before_advice
+Tracing::Aspects.after_advice
+Tracing::Aspects.around_advice
 

@@ -4,8 +4,7 @@ module ExceptionHandler
     include Singleton
 
     @classes  = [Users]
-    @methods  = [:show, :edit, :update, :destroy]
-    @pointcut = Pointcut.new :calls_to => @methods, :on_type => @classes
+    @pointcut = Pointcut.new :on_type => @classes, :method_options => :exclude_ancestor_methods
   
     def self.catch_object_not_found_error
       Aspect.new :around, :pointcut => @pointcut do |join_point, object, *args|
