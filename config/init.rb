@@ -23,8 +23,6 @@ use_test :rspec
 ### Add your other dependencies here
 dependencies "aquarium"
 
-# dependencies "RedCloth", "merb_helpers"
-
 Merb::BootLoader.after_app_loads do
 
   ### Add dependencies here that must load after the application loads:
@@ -32,3 +30,7 @@ Merb::BootLoader.after_app_loads do
   # require 'aspects/exception_handler';  puts " ~ loading exception_handler aspect"
   # require 'aspects/logged_activity';    puts " ~ loading logged_activity aspect"
 end
+
+
+
+

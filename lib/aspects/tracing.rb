@@ -29,7 +29,7 @@ module Tracing
     end
   end
 end
-
+# Aspects have precidence, around, before, then after advise.
 Tracing::Aspects.before_advice
 Tracing::Aspects.after_advice
 Tracing::Aspects.around_advice

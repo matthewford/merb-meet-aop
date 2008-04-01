@@ -1,6 +1,6 @@
 # Aspect App
 
-An example application from the Aspect Oriented Programming (AOP) in Ruby Talk at EURUKO2008, with example aspects in `lib/aspects`. For more information about AOP, see the slides available here (Link) and go to the Aquarium [webpage](http://aquarium.rubyforge.org/).
+An example application from the Aspect Oriented Programming (AOP) in Ruby Talk at EURUKO2008, with example aspects in `lib/aspects`. For more information about AOP, see the slides available [here](http://www.slideshare.net/deimos/aspect-orientated-programming-in-ruby) and go to the Aquarium [webpage](http://aquarium.rubyforge.org/).
 
 ### Dependancies 
 
